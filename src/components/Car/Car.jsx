@@ -1,5 +1,5 @@
 import { icons as sprite } from '../../shared/icons';
-
+import css from './Car.module.css';
 const advertElement = {
   _id: "1",
   name: "Road Bear C 23-25",
@@ -56,18 +56,74 @@ const advertElement = {
 };
 const Car = () => {
     return (
-        <li>
+        <li className={css.carItem}>
       <img
         src={advertElement.gallery[0]}
         alt={advertElement.name}
             />
             <div>
                 <h3>{advertElement.name}</h3>
-                <p>{advertElement.price}.00</p>
+                <p>&euro;{advertElement.price}.00</p>
                     <svg>
                        <use  xlinkHref={`${sprite}#icon-heart`} />
                     </svg>
-            </div>
+        </div>
+        <div>
+          <p>
+          <svg>
+            <use  xlinkHref={`${sprite}#icon-rating`} />
+          </svg>
+          {advertElement.rating}({advertElement.reviews.length} Reviews)
+          </p>
+          <p>
+            <svg>
+              <use  xlinkHref={`${sprite}#icon-location`} />
+            </svg>
+            {advertElement.location}
+          </p>
+          <p>{advertElement.description}</p>
+          <ul>
+            <li>
+              <svg>
+              <use  xlinkHref={`${sprite}#icon-Users`} />
+              </svg>
+              <p>{advertElement.adults} adults</p>
+            </li>
+            <li>
+              <svg>
+              <use  xlinkHref={`${sprite}#icon-authomatic`} />
+              </svg>
+              <p>{advertElement.transmission}</p>
+            </li>
+            <li>
+              <svg>
+              <use  xlinkHref={`${sprite}#icon-petrol`} />
+              </svg>
+              <p>{ advertElement.engine}</p>
+            </li>
+               {advertElement.details.kitchen && (
+            <li>
+              <svg>
+                <use  xlinkHref={`${sprite}#icon-kitchen`} />
+              </svg>
+              <p >Kitchen</p>
+            </li>
+          )}
+            <li>
+            <svg>
+              <use  xlinkHref={`${sprite}#icon-beds`} />
+              </svg>
+              <p>{advertElement.details.beds} beds</p>
+            </li>
+            <li>
+              <svg>
+              <use  xlinkHref={`${sprite}#icon-AC`} />
+              </svg>
+              <p>{advertElement.details.airConditioner} AC</p>
+            </li>
+          </ul>
+            <button>Show more</button>
+        </div>
         </li>
     )
 };

@@ -1,9 +1,11 @@
 import IconSearchBar from "../../components/IconSearchBar/IconSearchBar";
+import CarList from "../../components/CarList/CarList";
 
 function Catalog() {
   return (
     <div>
-      <IconSearchBar/>
+      <IconSearchBar />
+      <CarList/>
     </div>
   )
 }

@@ -1,0 +1,8 @@
+.carItem {
+    max-width: 840px;
+    width: 100%;
+    border: 1px solid var(--primary-color);
+    border-radius: 20px;
+    padding: 24px;
+    gap: 24px;
+}

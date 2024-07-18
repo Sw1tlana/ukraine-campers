@@ -62,7 +62,8 @@ const IconSearchBar = () => {
                     </ul>
                 </div>
 
-        </div>
+            </div>
+             <button>Search</button>
         </div>
     )
 };
