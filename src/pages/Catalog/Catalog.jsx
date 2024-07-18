@@ -1,7 +1,10 @@
+import IconSearchBar from "../../components/IconSearchBar/IconSearchBar";
 
 function Catalog() {
   return (
-    <div></div>
+    <div>
+      <IconSearchBar/>
+    </div>
   )
 }
 
