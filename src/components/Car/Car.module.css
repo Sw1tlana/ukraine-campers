@@ -2,7 +2,48 @@
     max-width: 840px;
     width: 100%;
     border: 1px solid var(--primary-color);
+    display: grid;
+    grid-template-columns: 290px 1fr;
     border-radius: 20px;
     padding: 24px;
     gap: 24px;
+}
+
+.image {
+    max-width: 290px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center right;
+    border-radius: 10px;
+}
+
+.wrapperInfo {
+   display: flex;
+   flex-direction: column;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.price {
+ display: flex;
+ align-items: center;
+ gap: 12px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    fill: transparent;
+    stroke: var(--text-color);
+}
+
+.ratingInfo {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
 }
