@@ -1,0 +1,51 @@
+.header {
+    background-color: var(--bg-primery-color);
+    padding: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 2rem;
+}
+
+nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.link {
+    text-decoration: none;
+    color: #343a40;
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+.link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: var(--status-color);
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+}
+
+.link:hover {
+    color: var(--status-color);
+}
+
+.link:hover::after {
+    width: 100%;
+}
+
+.active {
+    color: var(--status-color);
+}
+
+.active::after {
+    width: 100%;
+}

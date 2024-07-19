@@ -1,6 +1,5 @@
 .carItem {
     max-width: 840px;
-    width: 100%;
     border: 1px solid var(--primary-color);
     display: grid;
     grid-template-columns: 290px 1fr;
@@ -68,6 +67,10 @@
 .description {
     color: rgba(16, 24, 40, 0.6);
     margin-bottom: 24px;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 420px;
 }
 
 .listIconGroup {
