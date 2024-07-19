@@ -1,7 +1,18 @@
 import { icons as sprite } from "../../shared/icons/index";
 import css from "./DetailModalInfo.module.css";
+import clsx from "clsx";
+import { useState } from "react";
 
-const DetailModalInfo = ({db}) => {
+import CarFeatures from "../../components/CarFeatures/CarFeatures";
+import CarReviews from "../../components/CarReviews/CarReviews"
+
+const DetailModalInfo = ({ db }) => {
+  const [active, setActive] = useState("features");
+  
+    const handleLinkClick = (component) => {
+    setActive(component);
+  };
+
     return (
         <>
         <div className={css.containerInfo}>
@@ -32,7 +43,25 @@ const DetailModalInfo = ({db}) => {
       </ul>
 
       <p className={css.description}>{db.description}</p>
-    </div>
+        </div>
+  <nav>
+    <ul className={css.addInfromList}>
+      {['features', 'reviews'].map(item => (
+        <li
+          key={item}
+          className={clsx(css.addInfromItem, {
+            [css.active]: active === item,
+          })}
+          onClick={() => handleLinkClick(item)}
+        >
+          {item === 'features' ? 'Features' : 'Reviews'}
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  {active === "features" ? <CarFeatures data={db} /> : <CarReviews data={db} />}
+
 </>
     )
 };
