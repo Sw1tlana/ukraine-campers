@@ -1,22 +1,6 @@
-// import css from "./ModalWindow.module.css";
+import './ModalWindow.css';
 import Modal from 'react-modal';
 import { useEffect } from 'react';
-
-const customStyles = {
-  overlay: {
-    backgroundColor: 'rgba(0, 0, 0, 0.75)'
-  },
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    border: 'none',
-    boxShadow: '0px 4px 16px rgba(0, 0, 0, 0.2)'
-  },
-};
 
 const ModalWindow = ({ children, isOpen, onClose }) => {
 
@@ -30,15 +14,16 @@ const ModalWindow = ({ children, isOpen, onClose }) => {
     return () => {
         window.removeEventListener('keydown', handleKeyDown); 
     }
-  }, [onClose]);    
+      }, [onClose]); 
+  
     return (
      <Modal
       isOpen={isOpen}
-      onRequestClose={closeModal}
-      style={customStyles}
-      contentLabel="Image Modal"
+      onRequestClose={onClose}
+      overlayClassName="modal-overlay"
+      className="modal-content"
     >
-    <button  onClick={onClose}>Close
+    <button  onClick={onClose}>
         {children}
         {/* <svg className="iconClose">
           <use xlinkHref={`${sprite}#icon-close`} />

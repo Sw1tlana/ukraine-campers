@@ -51,6 +51,10 @@
     align-items: center;
 }
 
+.underlined {
+    text-decoration: underline;
+}
+
 .iconRating {
     width: 20px;
     height: 20px;

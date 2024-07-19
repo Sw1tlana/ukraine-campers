@@ -1,5 +1,9 @@
 import { icons as sprite } from '../../shared/icons';
 import css from './Car.module.css';
+import { useState } from 'react';
+import ModalWindow from '../../shared/components/ModalWindow/ModalWindow';
+import DetailModalInfo from '../DetailModalInfo/DetailModalInfo';
+
 const advertElement = {
   _id: "1",
   name: "Road Bear C 23-25",
@@ -55,6 +59,15 @@ const advertElement = {
   ],
 };
 const Car = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
     return (
         <li className={css.carItem}>
         <img
@@ -77,7 +90,7 @@ const Car = () => {
           <p className={css.rating}><svg width={20} height={20}>
             <use className={css.iconRating}  xlinkHref={`${sprite}#icon-rating`} />
           </svg>
-          {advertElement.rating}({advertElement.reviews.length} Reviews)</p>
+          <span className={css.underlined}>{advertElement.rating} ({advertElement.reviews.length} Reviews)</span></p>
           <p className={css.rating}><svg width={20} height={20}>
               <use className={css.iconLocation}  xlinkHref={`${sprite}#icon-location`} />
             </svg>
@@ -148,8 +161,12 @@ const Car = () => {
             </li>
           </ul>
 
-          <button className={css.btnShowMore}>Show more</button>
-          </div>
+          <button className={css.btnShowMore} onClick={openModal}>Show more</button>
+        </div>
+
+      <ModalWindow isOpen={isModalOpen} onClose={closeModal}>
+          <DetailModalInfo db={advertElement} />
+      </ModalWindow>
         </li>
     )
 };
