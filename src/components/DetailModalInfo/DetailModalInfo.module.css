@@ -54,11 +54,12 @@
 }
 
 .itemImg {
-    width: 340px;
-    height: 190px;
-    border-radius: 10px;
+    width: 290px;
+    height: 310px;
     object-fit: cover;
+    object-position: center;
     margin-bottom: 24px;
+    border-radius: 10px;
 }
 
 .description {
