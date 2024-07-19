@@ -74,60 +74,81 @@ const Car = () => {
               </div>
             </div>
             <div className={css.ratingInfo}>
-          <p><svg width={20} height={20}>
-            <use  xlinkHref={`${sprite}#icon-rating`} />
+          <p className={css.rating}><svg width={20} height={20}>
+            <use className={css.iconRating}  xlinkHref={`${sprite}#icon-rating`} />
           </svg>
           {advertElement.rating}({advertElement.reviews.length} Reviews)</p>
-          <p><svg width={20} height={20}>
-              <use  xlinkHref={`${sprite}#icon-location`} />
+          <p className={css.rating}><svg width={20} height={20}>
+              <use className={css.iconLocation}  xlinkHref={`${sprite}#icon-location`} />
             </svg>
               {advertElement.location}</p>
             </div>
         </div>
         
-        <p>{advertElement.description}</p>
+        <div className={css.description}>
+            <p className={css.descriptionText}>{advertElement.description}</p>
+        </div>
         
-          <ul>
+          <ul className={css.listIconGroup}>
+
             <li>
+              <div className={css.containerIconGroup}>
               <svg width={20} height={20}>
               <use  xlinkHref={`${sprite}#icon-Users`} />
               </svg>
               <p>{advertElement.adults} adults</p>
+              </div>
             </li>
+
             <li>
+              <div className={css.containerIconGroup}>
               <svg width={20} height={20}>
               <use  xlinkHref={`${sprite}#icon-authomatic`} />
               </svg>
-              <p>{advertElement.transmission}</p>
+                <p>{advertElement.transmission}</p>
+              </div>
             </li>
+
             <li>
+              <div className={css.containerIconGroup}>
               <svg width={20} height={20}>
               <use  xlinkHref={`${sprite}#icon-petrol`} />
               </svg>
-              <p>{ advertElement.engine}</p>
+              <p>{advertElement.engine}</p>
+              </div>
             </li>
+
                {advertElement.details.kitchen && (
-            <li>
+              <li>
+                <div className={css.containerIconGroup}>
               <svg width={20} height={20}>
                 <use  xlinkHref={`${sprite}#icon-kitchen`} />
               </svg>
-              <p >Kitchen</p>
+                  <p >Kitchen</p>
+                </div>
             </li>
-          )}
+            )}
+            
             <li>
+              <div className={css.containerIconGroup}>
             <svg width={20} height={20}>
               <use  xlinkHref={`${sprite}#icon-beds`} />
               </svg>
-              <p>{advertElement.details.beds} beds</p>
+                <p>{advertElement.details.beds} beds</p>
+                </div>
             </li>
+
             <li>
+              <div className={css.containerIconGroup}>
               <svg width={20} height={20}>
-              <use  xlinkHref={`${sprite}#icon-AC`} />
+              <use className={css.iconGroup} xlinkHref={`${sprite}#icon-AC`} />
               </svg>
               <p>{advertElement.details.airConditioner} AC</p>
+              </div>
             </li>
           </ul>
-          <button>Show more</button>
+
+          <button className={css.btnShowMore}>Show more</button>
           </div>
         </li>
     )

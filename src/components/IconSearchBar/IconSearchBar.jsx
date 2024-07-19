@@ -1,61 +1,88 @@
 import { icons as sprite } from '../../shared/icons';
+import css from "./IconSearchBar.module.css";
 
 const IconSearchBar = () => {
     return (
-        <div>
-       <div>
-        <h2>Location</h2>
-        <div>
-          <svg>
-            <use  xlinkHref={`${sprite}#icon-location`} />
-          </svg>
-        <input  type="text" placeholder='City'/></div>
+    <div>
+       <div className={css.searchContainer}>
+        <h2 className={css.title}>Location</h2>
+                <div className={css.searchContainerLocation}>
+                    <div className={css.iconWrapper}>
+            <svg width={20} height={20}>
+                <use className={css.iconLocation} xlinkHref={`${sprite}#icon-location`} />
+            </svg>
+                </div>
+               <input className={css.searchInput} type="text" placeholder='City' />
             </div>
-                <h2>Filters</h2>
-            <p>Vehicle equipment</p>
-            <ul>
-            <li>
-              <svg>
-                  <use  xlinkHref={`${sprite}#icon-AC`} />
-              </svg>
-            </li>
+            </div>
+                <h2 className={`${css.title} ${css.filter}`}>Filters</h2>
+             <p className={css.text}>Vehicle equipment</p>
+             <p className={css.border}></p>
+
+            <ul className={css.listEquipment}>
                 <li>
-                <svg>
+                    <div className={css.containerSearchIcon}>
+                <svg width={28} height={24}>
+                    <use  xlinkHref={`${sprite}#icon-AC`} />
+                </svg>
+                        <p>AC</p>
+                    </div>
+                </li>
+                
+                <li>
+                    <div className={css.containerSearchIcon}>
+                <svg width={28} height={24}>
                    <use  xlinkHref={`${sprite}#icon-authomatic`} />
                 </svg>
+                        <p>Authomatic</p>
+                    </div>
                 </li>
+
                 <li>
-                <svg>
+                    <div className={css.containerSearchIcon}>
+                <svg width={28} height={24}>
                     <use xlinkHref={`${sprite}#icon-kitchen`} />
-                </svg>
+                 </svg>
+                        <p>Kitchen</p>
+                    </div>
                 </li>
+
                 <li>
-                <svg>
+                    <div className={css.containerSearchIcon}>
+                <svg width={28} height={24}>
                     <use  xlinkHref={`${sprite}#icon-TV`} />
                 </svg>
+                        <p>TV</p>
+                    </div>
                 </li>
+
                 <li>
-                <svg>
+                    <div className={css.containerSearchIcon}>
+                <svg width={28} height={24}>
                     <use  xlinkHref={`${sprite}#icon-WC`} />
                 </svg>
+                        <p>Shower/WC</p>
+                    </div>
                 </li>
+
           </ul>
-            <div >
+            <div>
                 <div>
-                    <p>Vehicle type</p>
-                    <ul>
-                        <li>
-                            <svg>
+                    <p className={css.text}>Vehicle type</p>
+                     <p className={css.border}></p>
+                    <ul className={css.listEquipment}>
+                        <li className={css.containerSearchIcon}>
+                            <svg width={40} height={28}>
                                 <use  xlinkHref={`${sprite}#icon-VAN`} />
                             </svg>
                         </li>
-                        <li>
-                           <svg>
+                        <li className={css.containerSearchIcon}>
+                           <svg width={40} height={28}>
                                 <use  xlinkHref={`${sprite}#icon-Fully`} />
                            </svg>
                         </li>
-                        <li>
-                            <svg>
+                        <li className={css.containerSearchIcon}>
+                            <svg width={40} height={28}>
                                  <use  xlinkHref={`${sprite}#icon-Alcove`} />
                             </svg>
                         </li>
@@ -63,7 +90,7 @@ const IconSearchBar = () => {
                 </div>
 
             </div>
-             <button>Search</button>
+             <button className={css.btnSearch}>Search</button>
         </div>
     )
 };

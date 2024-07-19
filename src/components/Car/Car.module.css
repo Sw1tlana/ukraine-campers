@@ -11,7 +11,6 @@
 
 .image {
     max-width: 290px;
-    width: 100%;
     object-fit: cover;
     object-position: center right;
     border-radius: 10px;
@@ -30,9 +29,9 @@
 }
 
 .price {
- display: flex;
- align-items: center;
- gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .icon {
@@ -46,4 +45,74 @@
     display: flex;
     gap: 16px;
     margin-bottom: 24px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.iconRating {
+    width: 20px;
+    height: 20px;
+    fill: var(--status-color);
+}
+
+.iconLocation {
+    width: 20px;
+    height: 20px;
+    fill: transparent;
+    stroke: var(--text-color);
+}
+
+.description {
+    color: rgba(16, 24, 40, 0.6);
+    margin-bottom: 24px;
+}
+
+.listIconGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.containerIconGroup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 12px 18px;
+    background-color: var(--primary-color);
+    border-radius: 100px;
+}
+
+.iconGroup {
+    width: 20px;
+    height: 20px;
+    stroke: var(--text-color);   
+}
+
+.btnShowMore {
+    width: 166px;
+    height: 56px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 40px 16px 40px;
+    border-radius: 200px;
+    background: var(--primery-accent-color);
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+    text-align: left;
+    color: var(--white);
+}
+
+.btnShowMore:hover,
+.btnShowMore:active {
+    background-color: var(--secondary-accent-color);
 }

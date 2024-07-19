@@ -1,0 +1,116 @@
+
+
+.searchContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 32px;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(16, 24, 40, 0.6);
+}
+
+.filter {
+    margin-bottom: 14px;
+}
+
+.searchContainerLocation {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.iconWrapper {
+    position: absolute;
+    left: 18px;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+
+.iconLocation {
+    width: 20px;
+    height: 20px;
+    fill: transparent;
+    stroke: var(--text-color);
+}
+
+.searchInput {
+    max-width: 360px;
+    height: 56px;
+    padding: 18px 218px 18px 40px;
+    outline: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--bg-primery-color);
+}
+
+.searchInput::placeholder {
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+.text {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.border {
+    border: 1px solid rgba(16, 24, 40, 0.1);
+    margin-bottom: 24px;
+}
+
+.listEquipment {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    margin-bottom: 32px;
+}
+
+.containerSearchIcon {
+    width: 113px;
+    height: 95px;
+    border: 1px solid rgba(16, 24, 40, 0.2);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+.containerSearchIcon:hover,
+.containerSearchIcon:active {
+    border: 1px solid var(--secondary-accent-color);
+}
+
+.btnSearch {
+    width: 166px;
+    height: 56px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 40px 16px 40px;
+    border-radius: 200px;
+    background: var(--primery-accent-color);
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+    text-align: left;
+    color: var(--white);
+}
+
+.btnSearch:hover,
+.btnSearch:active {
+    background-color: var(--secondary-accent-color);
+}
