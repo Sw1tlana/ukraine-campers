@@ -1,12 +1,24 @@
-import css from "./CarReviews.module.css"
-import Reviews from "../../components/Reviews/Reviews";
+import css from "./CarReviews.module.css";
+import Rating from '@mui/material/Rating';
 
 const CarReviews = ({data}) => {
-    return (
-        <div className={css.containerReviews}>
-          <Reviews db={data} />  
-        </div>
-    )
+  return (
+    <ul className={css.reviewsContainer}>
+      {data.map((review, index) => (
+        <li key={index} className={css.reviewInfo}>
+          <h4 className={css.reviewerName}>{review.reviewer_name}</h4>
+          <Rating
+            className={css.iconsRating}
+            name="half-rating-read"
+            defaultValue={review.reviewer_rating}
+            precision={0.5}
+            readOnly
+          />
+          <p className={css.reviewComment}>{review.comment}</p>
+        </li>
+      ))}
+    </ul>
+  );
 };
 
 export default CarReviews;

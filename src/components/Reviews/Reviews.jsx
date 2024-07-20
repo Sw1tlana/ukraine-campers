@@ -1,25 +1,15 @@
-import css from "./Reviews.module.css";
+// import css from "./Reviews.module.css";
 
-const Reviews = ({db}) => {
-    return (
-        <div>
-    <ul className={css.reviewsList}>
-      {db.reviews.map((review, index) => (
-        <li className={css.reviewItem} key={index}>
-          <div className={css.nameContainer}>
-            <div className={css.containerReviews}>
-              {review.reviewer_name[0]}
-            </div>
-            <div className={css.nameTitle}>
-              <h3>{review.reviewer_name}</h3>
-            </div>
-          </div>
-          <p className={css.review}>{review.comment}</p>
+const Reviews = ({ data }) => {
+  return (
+    <ul>
+      {data.map((review, index) => (
+        <li key={index}>
+          <p><strong>{review.author}</strong>: {review.text}</p>
         </li>
       ))}
     </ul>
-        </div>
-    )
+  );
 };
 
 export default Reviews;

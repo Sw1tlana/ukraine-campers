@@ -25,10 +25,30 @@
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    position: relative;
 }
 
 .modal-content * {
     background-color: transparent;
     border: none;
 }
+
+.modalClose{
+    position: absolute;
+    top: 20px;
+    right: 26px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: transparent;
+}
+
+.iconClose {
+    width: 24px;
+    height: 24px;
+    stroke: var(--text-color);
+    stroke-width: 0; 
+}
+
+
 

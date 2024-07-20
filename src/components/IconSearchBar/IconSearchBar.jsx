@@ -23,7 +23,7 @@ const IconSearchBar = () => {
                 <li>
                     <div className={css.containerSearchIcon}>
                 <svg width={28} height={24}>
-                    <use  xlinkHref={`${sprite}#icon-AC`} />
+                    <use xlinkHref={`${sprite}#icon-AC`} />
                 </svg>
                         <p>AC</p>
                     </div>
@@ -32,7 +32,7 @@ const IconSearchBar = () => {
                 <li>
                     <div className={css.containerSearchIcon}>
                 <svg width={28} height={24}>
-                   <use  xlinkHref={`${sprite}#icon-authomatic`} />
+                   <use className={css.icon} xlinkHref={`${sprite}#icon-authomatic`} />
                 </svg>
                         <p>Authomatic</p>
                     </div>
@@ -41,7 +41,7 @@ const IconSearchBar = () => {
                 <li>
                     <div className={css.containerSearchIcon}>
                 <svg width={28} height={24}>
-                    <use xlinkHref={`${sprite}#icon-kitchen`} />
+                    <use className={css.icon} xlinkHref={`${sprite}#icon-kitchen`} />
                  </svg>
                         <p>Kitchen</p>
                     </div>
@@ -50,7 +50,7 @@ const IconSearchBar = () => {
                 <li>
                     <div className={css.containerSearchIcon}>
                 <svg width={28} height={24}>
-                    <use  xlinkHref={`${sprite}#icon-TV`} />
+                    <use className={css.icon} xlinkHref={`${sprite}#icon-TV`} />
                 </svg>
                         <p>TV</p>
                     </div>
@@ -59,7 +59,7 @@ const IconSearchBar = () => {
                 <li>
                     <div className={css.containerSearchIcon}>
                 <svg width={28} height={24}>
-                    <use  xlinkHref={`${sprite}#icon-WC`} />
+                    <use className={css.icon} xlinkHref={`${sprite}#icon-WC`} />
                 </svg>
                         <p>Shower/WC</p>
                     </div>

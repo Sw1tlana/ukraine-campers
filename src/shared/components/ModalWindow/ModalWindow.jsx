@@ -1,9 +1,11 @@
 import './ModalWindow.css';
+import { icons as sprite } from "../../../shared/icons/index";
 import Modal from 'react-modal';
 import { useEffect } from 'react';
 
 const ModalWindow = ({ children, isOpen, onClose }) => {
-
+  Modal.setAppElement('#root');
+  
       useEffect(() => {
       const handleKeyDown = (event) => {
       if (event.key === 'Escape') { 
@@ -23,13 +25,12 @@ const ModalWindow = ({ children, isOpen, onClose }) => {
       overlayClassName="modal-overlay"
       className="modal-content"
     >
-    <button  onClick={onClose}>
-        {children}
-        {/* <svg className="iconClose">
+    <button  onClick={onClose} className="modalClose">
+        <svg className="iconClose">
           <use xlinkHref={`${sprite}#icon-close`} />
-        </svg> */}
-    </button>
-     
+        </svg> 
+        </button> 
+        {children}
     </Modal>
     )
 };

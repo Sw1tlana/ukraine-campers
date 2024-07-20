@@ -1,0 +1,36 @@
+.featuresList {
+    max-width: 430px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;  
+    margin-bottom: 25px;
+}
+
+.featureItem {
+    max-width: 100%;
+    height: auto;
+}
+
+.strokeStyle {
+    fill: var(--text-color);
+}
+
+.fillStyle {
+    stroke: var(--text-color);
+    fill: transparent;
+}
+
+.containerIconGroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    gap: 4px;
+    padding: 12px 18px;
+    background-color: var(--primary-color);
+    border-radius: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

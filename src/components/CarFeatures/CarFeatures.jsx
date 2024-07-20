@@ -1,9 +1,10 @@
-import Feature from "../../components/Features/Features";
+import Features from "../Features/Features";
 
-const CarFeatures = ({data}) => {
+const CarFeatures = ({ data }) => {
+
     return (
         <div>
-            <Feature db={data} />
+        <Features db={data} />
         </div>
     )
 };

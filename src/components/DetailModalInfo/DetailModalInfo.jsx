@@ -1,17 +1,20 @@
 import { icons as sprite } from "../../shared/icons/index";
 import css from "./DetailModalInfo.module.css";
-import clsx from "clsx";
 import { useState } from "react";
+import clsx from "clsx";
 
-import CarFeatures from "../../components/CarFeatures/CarFeatures";
-import CarReviews from "../../components/CarReviews/CarReviews"
+import CarFeatures from "../CarFeatures/CarFeatures";
+import CarReviews from "../CarReviews/CarReviews";
+
 
 const DetailModalInfo = ({ db }) => {
   const [active, setActive] = useState("features");
   
-    const handleClick = (component) => {
-    setActive(component);
+  const handleClick = (tab) => {
+       console.log(tab);
+    setActive(tab);
   };
+  const isDetailsValid = db && db.details && typeof db.details === 'object';
 
     return (
         <>
@@ -44,24 +47,32 @@ const DetailModalInfo = ({ db }) => {
 
       <p className={css.description}>{db.description}</p>
         </div>
-  <nav>
-    <ul className={css.addInfromList}>
-      {['features', 'reviews'].map(item => (
-        <li
-          key={item}
-          className={clsx(css.addInfromItem, {
-            [css.active]: active === item,
-          })}
-          onClick={() => handleClick(item)}
-        >
-          {item === 'features' ? 'Features' : 'Reviews'}
-        </li>
-      ))}
-    </ul>
-  </nav>
-
-  {active === "features" ? <CarFeatures data={db} /> : <CarReviews data={db} />}
-
+ 
+     <nav>
+        <ul className={css.informList}>
+            <li
+                className={clsx(css.informItem, {
+                    [css.active]: active === "features",
+                })}
+                onClick={() => handleClick("features")}
+            >
+                Features
+            </li>
+            <li
+                className={clsx(css.informItem, {
+                    [css.active]: active === "reviews",
+                })}
+                onClick={() => handleClick("reviews")}
+            >
+                Reviews
+            </li>
+        </ul>
+    </nav>
+        {active === "features" && isDetailsValid && <CarFeatures data={{
+          ...db.details,
+          ...db.details, adults: db.adults, transmission: db.transmission
+        }} />}
+     {active === "reviews" && <CarReviews data={db.reviews} />}
 </>
     )
 };

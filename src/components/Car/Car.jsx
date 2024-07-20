@@ -107,7 +107,7 @@ const Car = () => {
             <li>
               <div className={css.containerIconGroup}>
               <svg width={20} height={20}>
-              <use  xlinkHref={`${sprite}#icon-Users`} />
+              <use xlinkHref={`${sprite}#icon-Users`} />
               </svg>
               <p>{advertElement.adults} adults</p>
               </div>
@@ -116,18 +116,18 @@ const Car = () => {
             <li>
               <div className={css.containerIconGroup}>
               <svg width={20} height={20}>
-              <use  xlinkHref={`${sprite}#icon-authomatic`} />
+              <use  className={css.icon}  xlinkHref={`${sprite}#icon-authomatic`} />
               </svg>
-                <p>{advertElement.transmission}</p>
+                <p>Authomatic</p>
               </div>
             </li>
 
             <li>
               <div className={css.containerIconGroup}>
               <svg width={20} height={20}>
-              <use  xlinkHref={`${sprite}#icon-petrol`} />
+              <use xlinkHref={`${sprite}#icon-petrol`} />
               </svg>
-              <p>{advertElement.engine}</p>
+              <p>Petrol</p>
               </div>
             </li>
 
@@ -135,7 +135,7 @@ const Car = () => {
               <li>
                 <div className={css.containerIconGroup}>
               <svg width={20} height={20}>
-                <use  xlinkHref={`${sprite}#icon-kitchen`} />
+                <use  className={css.icon} xlinkHref={`${sprite}#icon-kitchen`} />
               </svg>
                   <p >Kitchen</p>
                 </div>
@@ -145,7 +145,7 @@ const Car = () => {
             <li>
               <div className={css.containerIconGroup}>
             <svg width={20} height={20}>
-              <use  xlinkHref={`${sprite}#icon-beds`} />
+              <use  className={css.icon} xlinkHref={`${sprite}#icon-beds`} />
               </svg>
                 <p>{advertElement.details.beds} beds</p>
                 </div>
@@ -167,7 +167,8 @@ const Car = () => {
       <ModalWindow isOpen={isModalOpen} onClose={closeModal}>
           <DetailModalInfo db={advertElement} />
       </ModalWindow>
-        </li>
+      </li>
+      
     )
 };
 
