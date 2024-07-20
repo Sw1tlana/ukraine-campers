@@ -121,7 +121,7 @@ const Features = ({ db }) => {
   ];
 
   return (
-    <>
+    <div>
       <ul className={css.featuresList}>
         {featuresData.map(({ title, svg, className, condition = true }) =>
           condition ? (
@@ -139,37 +139,37 @@ const Features = ({ db }) => {
         )}
       </ul>
       
-      <h3 className={css.title}>Vehicle details</h3>
+      <h3 className={css.titleVehicle}>Vehicle details</h3>
 
       <ul className={css.detailsList}>
         <li className={css.detailsItem}>
           <p className={css.detailsText}>Form</p>
           <p className={css.detailsText}>
-            {db.form || "N/A"}
+            {db.form}
           </p>
         </li>
         <li className={css.detailsItem}>
           <p className={css.detailsText}>Length</p>
-          <p className={css.detailsText}>{db.length || "N/A"}</p>
+          <p className={css.detailsText}>{db.length }</p>
         </li>
         <li className={css.detailsItem}>
           <p className={css.detailsText}>Width</p>
-          <p className={css.detailsText}>{db.width || "N/A"}</p>
+          <p className={css.detailsText}>{db.width}</p>
         </li>
         <li className={css.detailsItem}>
           <p className={css.detailsText}>Height</p>
-          <p className={css.detailsText}>{db.height || "N/A"}</p>
+          <p className={css.detailsText}>{db.height}</p>
         </li>
         <li className={css.detailsItem}>
           <p className={css.detailsText}>Tank</p>
-          <p className={css.detailsText}>{db.tank || "N/A"}</p>
+          <p className={css.detailsText}>{db.tank}</p>
         </li>
         <li className={css.detailsItem}>
           <p className={css.detailsText}>Consumption</p>
-          <p className={css.detailsText}>{db.consumption || "N/A"}</p>
+          <p className={css.detailsText}>{db.consumption}</p>
         </li>
       </ul>
-    </>
+    </div>
   );
 };
 

@@ -34,3 +34,39 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.titleVehicle {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+    position: relative;
+    margin-bottom: 48px;
+}
+
+.titleVehicle::after {
+    content: "";
+    display: block;
+    width: 430px;
+    height: 2px;
+    border: 1px solid rgba(16, 24, 40, 0.1);
+    position: absolute;
+    bottom: -24px;
+    left: 0;
+}
+
+.detailsList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 430px;
+}
+
+.detailsItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detailsText {
+    font-weight: 500;
+    line-height: 1.3;
+}

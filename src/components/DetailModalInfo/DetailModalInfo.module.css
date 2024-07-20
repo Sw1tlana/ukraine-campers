@@ -75,6 +75,7 @@
     margin: 0;
     position: relative;
     display: flex;
+    width: 430px;
     border-bottom: 2px solid rgba(16, 24, 40, 0.1);
     margin-bottom: 44px;
 }
@@ -89,18 +90,20 @@
     transition: color 0.3s ease;
 }
 
-.informItem::before {
+.informItem::after {
     content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    display: block;
     width: 100%;
     height: 2px;
     background-color: transparent;
-    transition: background-color 0.3s ease;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: background-color 0.3s ease;   
 }
 
-.informItem:hover::before,
-.informItem.active::before {
+.informItem:hover::after,
+.informItem.active::after {
     background-color: var(--secondary-accent-color);
 }
+

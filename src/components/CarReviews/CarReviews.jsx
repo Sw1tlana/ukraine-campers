@@ -1,8 +1,10 @@
 import css from "./CarReviews.module.css";
 import Rating from '@mui/material/Rating';
+import FormBook from '../FormBook/FormBook';
 
-const CarReviews = ({data}) => {
+const CarReviews = ({ data }) => {
   return (
+    <div className={css.containerFormReviews}>
     <ul className={css.reviewsContainer}>
       {data.map((review, index) => (
         <li key={index} className={css.reviewInfo}>
@@ -17,7 +19,9 @@ const CarReviews = ({data}) => {
           <p className={css.reviewComment}>{review.comment}</p>
         </li>
       ))}
-    </ul>
+      </ul>
+      <FormBook/>
+    </div>
   );
 };
 

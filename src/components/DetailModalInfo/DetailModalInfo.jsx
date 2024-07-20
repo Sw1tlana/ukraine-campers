@@ -2,7 +2,7 @@ import { icons as sprite } from "../../shared/icons/index";
 import css from "./DetailModalInfo.module.css";
 import { useState } from "react";
 import clsx from "clsx";
-
+import CustomScrollWrapper from "../../shared/components/CustomScrollWrapper/CustomScrollWrapper";
 import CarFeatures from "../CarFeatures/CarFeatures";
 import CarReviews from "../CarReviews/CarReviews";
 
@@ -17,7 +17,7 @@ const DetailModalInfo = ({ db }) => {
   const isDetailsValid = db && db.details && typeof db.details === 'object';
 
     return (
-        <>
+      <>
         <div className={css.containerInfo}>
         <div className={css.info}>
             <h3 className={css.titleInfo}>{db.name}</h3>
@@ -47,7 +47,8 @@ const DetailModalInfo = ({ db }) => {
 
       <p className={css.description}>{db.description}</p>
         </div>
- 
+
+    <CustomScrollWrapper>
      <nav>
         <ul className={css.informList}>
             <li
@@ -69,10 +70,18 @@ const DetailModalInfo = ({ db }) => {
         </ul>
     </nav>
         {active === "features" && isDetailsValid && <CarFeatures data={{
-          ...db.details,
-          ...db.details, adults: db.adults, transmission: db.transmission
+            ...db.details,
+            adults: db.adults,
+            transmission: db.transmission,
+            form: db.form,
+            length: db.length,
+            width: db.width,
+            height: db.height,
+            tank: db.tank,
+            consumption: db.consumption,
         }} />}
-     {active === "reviews" && <CarReviews data={db.reviews} />}
+        {active === "reviews" && <CarReviews data={db.reviews} />}
+   </CustomScrollWrapper>
 </>
     )
 };
