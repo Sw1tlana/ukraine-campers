@@ -9,7 +9,7 @@ import CarReviews from "../../components/CarReviews/CarReviews"
 const DetailModalInfo = ({ db }) => {
   const [active, setActive] = useState("features");
   
-    const handleLinkClick = (component) => {
+    const handleClick = (component) => {
     setActive(component);
   };
 
@@ -52,7 +52,7 @@ const DetailModalInfo = ({ db }) => {
           className={clsx(css.addInfromItem, {
             [css.active]: active === item,
           })}
-          onClick={() => handleLinkClick(item)}
+          onClick={() => handleClick(item)}
         >
           {item === 'features' ? 'Features' : 'Reviews'}
         </li>
