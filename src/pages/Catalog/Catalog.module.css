@@ -1,6 +1,6 @@
 .catalogList {
-    display: flex;
-    margin: 0 auto;
-    gap: 64px;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
     padding: 100px 64px;
 }

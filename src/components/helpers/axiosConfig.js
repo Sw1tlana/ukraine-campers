@@ -1,1 +1,0 @@
-// https://6698cac22069c438cd700783.mockapi.io/:endpoint

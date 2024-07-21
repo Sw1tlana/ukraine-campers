@@ -3,6 +3,7 @@
 import { Route, Routes, Navigate  } from 'react-router-dom';
 import { lazy, Suspense } from "react";
 import Layout from "./components/Layout/Layout";
+import Loader from "./shared/components/Loader/Loader";
 
 const Home = lazy(() => import('./pages/Home/Home'));
 const Catalog = lazy(() => import('./pages/Catalog/Catalog'));
@@ -13,7 +14,7 @@ function App() {
   return (
     <>
       <Layout>
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/catalog" element={<Catalog />} />

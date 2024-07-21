@@ -1,11 +1,16 @@
 import { useSelector } from 'react-redux';
 import { selectFavoriteCars } from '../../redux/favorites/selectors';
 import css from './Favorites.module.css';
+import { Helmet } from "react-helmet-async";
 
 const Favorites = () => {
     const favoriteCars = useSelector(selectFavoriteCars);
 
   return (
+    <>
+      <Helmet>
+        <title>Favorites</title>
+      </Helmet>
     <div className={css.wrapper}>
       <ul className={css.favoriteCarsList}>
       {favoriteCars.map(car => (
@@ -20,6 +25,7 @@ const Favorites = () => {
       ))}
     </ul>
  </div>
+  </>
   )
 }
 

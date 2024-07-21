@@ -1,9 +1,24 @@
 import { icons as sprite } from '../../shared/icons';
 import css from "./IconSearchBar.module.css";
+import toast from 'react-hot-toast';
 
-const IconSearchBar = () => {
+const IconSearchBar = ({onSubmit}) => {
+
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+        const form = evt.target;
+        const query = form.elements.query.value.trim();
+        if (query !== '') {
+            onSubmit(query);
+        } else {
+            toast.error('Please enter a search query!');
+        }
+        form.reset();
+    };
+
     return (
-    <div>
+
+    <form onSubmit={handleSubmit}>
        <div className={css.searchContainer}>
         <h2 className={css.title}>Location</h2>
                 <div className={css.searchContainerLocation}>
@@ -12,8 +27,12 @@ const IconSearchBar = () => {
                 <use className={css.iconLocation} xlinkHref={`${sprite}#icon-location`} />
             </svg>
                 </div>
-               <input className={css.searchInput} type="text" placeholder='City' />
-            </div>
+                    
+                    <input className={css.searchInput}
+                        type="text"
+                        name="query"
+                        placeholder='City' />
+                </div>
             </div>
                 <h2 className={`${css.title} ${css.filter}`}>Filters</h2>
              <p className={css.text}>Vehicle equipment</p>
@@ -91,7 +110,7 @@ const IconSearchBar = () => {
 
             </div>
              <button className={css.btnSearch}>Search</button>
-        </div>
+        </form>
     )
 };
 

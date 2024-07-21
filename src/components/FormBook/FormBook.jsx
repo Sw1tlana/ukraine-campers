@@ -22,22 +22,14 @@ const FormBook = () => {
 
 const onSubmit = async (data) => {
     try {
-        // Логування даних перед відправкою
-        console.log('Data before sending:', data);
-        
-        // Обрізаємо пробіли у полях
         data.name = data.name.trim();
         data.email = data.email.trim();
         data.comment = data.comment.trim();
         
-        // Конвертуємо дату в формат ISO
         data.bookingDate = new Date(data.bookingDate).toISOString();
         
-        // Відправляємо дані через dispatch
         await dispatch(addBookings(data)).unwrap();
-        
-        // Очищення форми та відображення успішного повідомлення
-        console.log('Resetting form');
+    
         reset();
         toast.success('Booking successfully added! 🎉');
     } catch (error) {

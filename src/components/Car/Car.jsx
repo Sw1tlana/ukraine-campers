@@ -3,7 +3,6 @@ import css from './Car.module.css';
 import { useState } from 'react';
 import ModalWindow from '../../shared/components/ModalWindow/ModalWindow';
 import DetailModalInfo from '../DetailModalInfo/DetailModalInfo';
-import ReactPaginate from 'react-paginate';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavorite, deleteFavorite } from '../../redux/favorites/slice';
@@ -11,10 +10,8 @@ import { selectFavoriteCars } from '../../redux/favorites/selectors';
 
 
 const Car = ({advertElement}) => {
-const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
-  const itemsPerPage = 4;
   const dispatch = useDispatch();
   const favoriteCars = useSelector(selectFavoriteCars);
   
@@ -36,17 +33,8 @@ const [isModalOpen, setIsModalOpen] = useState(false);
     setIsModalOpen(false);
   };
 
-  const handlePageClick = (event) => {
-  const selectedPage = event.selected;
-  setCurrentPage(selectedPage);
-};
-
-  const offset = currentPage * itemsPerPage;
-  const currentItems = carList.slice(offset, offset + itemsPerPage);
-
   return (
-    <>
-      {currentItems.map(item => (
+      <>
         <li className={css.carItem}>
         <img
         className={css.image}
@@ -149,21 +137,8 @@ const [isModalOpen, setIsModalOpen] = useState(false);
       <ModalWindow isOpen={isModalOpen} onClose={closeModal}>
           <DetailModalInfo db={advertElement} />
       </ModalWindow>
-      </li>
-      )
-          <ReactPaginate
-        previousLabel={"previous"}
-        nextLabel={"next"}
-        breakLabel={"..."}
-        pageCount={Math.ceil(carList.length / itemsPerPage)}
-        marginPagesDisplayed={2}
-        pageRangeDisplayed={3}
-        onPageChange={handlePageClick}
-        containerClassName={css.pagination}
-        activeClassName={css.active}
-      />
-             
-      </>
+      </li>           
+    </>
       
     )
 };

@@ -56,6 +56,11 @@
     color: var(--text-color);
 }
 
+.searchInput:hover,
+.searchInput:active {
+    border: 1px solid var(--status-color);
+}
+
 .text {
     font-size: 20px;
     font-weight: 600;

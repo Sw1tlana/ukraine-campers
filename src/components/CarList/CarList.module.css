@@ -1,5 +1,21 @@
-.carList {
+.container {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.searchBar {
+    flex: 1;
+}
+
+.content {
+    flex: 3;
     display: flex;
     flex-direction: column;
-    gap: 32px;
+}
+
+.carList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
