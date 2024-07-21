@@ -40,6 +40,17 @@
     stroke: var(--text-color);
 }
 
+.iconHeart {
+    fill: transparent;
+    stroke: var(--text-color);
+    cursor: pointer;
+}
+
+.iconHeart.favorite {
+    fill: var(--secondary-accent-color);
+    stroke: none;
+}
+
 .ratingInfo {
     display: flex;
     gap: 16px;

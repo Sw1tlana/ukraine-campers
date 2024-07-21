@@ -1,1 +1,22 @@
 
+.favoriteCarsList {
+    display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 30px;
+        padding: 20px;
+}
+
+.carItem {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 10px;
+}
+
+.image {
+   width: 400px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}

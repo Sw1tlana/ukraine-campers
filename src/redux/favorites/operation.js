@@ -11,3 +11,4 @@ export const getCamper = createAsyncThunk("camper/fetchAll",
         }
     }
 );
+
