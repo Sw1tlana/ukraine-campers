@@ -35,7 +35,9 @@ const DetailModalInfo = ({ db }) => {
             <div className={css.price}>
               <p>&euro;{db.price}.00</p>
             </div> 
-            </div>
+        </div>
+
+         <CustomScrollWrapper>
         <div className={css.containerWrapp}>
         <ul className={css.listModalimg}>
         {db.gallery.map((img, index) => (
@@ -46,9 +48,8 @@ const DetailModalInfo = ({ db }) => {
       </ul>
 
       <p className={css.description}>{db.description}</p>
-        </div>
-
-    <CustomScrollWrapper>
+      </div>
+          
      <nav>
         <ul className={css.informList}>
             <li

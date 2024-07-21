@@ -1,17 +1,13 @@
-.customScrollWrapper .simplebar-track {
-    background-color: #f1f1f1;
-    /* Колір треку */
+
+.customScrollWrapper {
+    max-height: 300px;
 }
 
-.customScrollWrapper .simplebar-scrollbar {
-    background-color: #007bff;
-    /* Колір скролера */
-}
-
-/* Псевдоелементи для детальнішої кастомізації */
 .customScrollWrapper .simplebar-scrollbar::before {
-    background-color: #007bff;
-    /* Колір скролера */
-    border-radius: 10px;
-    /* Округлені краї */
+    background-color: var(#475467);
+}
+
+.customScrollWrapper .simplebar-track {
+    background-color: var(--scroll-color);
+    border-radius: 7px;
 }
