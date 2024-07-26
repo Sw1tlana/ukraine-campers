@@ -34,6 +34,18 @@
     gap: 12px;
 }
 
+.btnHeart {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .icon {
     width: 20px;
     height: 20px;
@@ -48,8 +60,13 @@
 }
 
 .iconHeart.favorite {
-    fill: var(--secondary-accent-color);
+    fill: var(--primery-accent-color);
     stroke: none;
+}
+
+.iconHeart:hover, 
+.iconHeart:active {
+   stroke: var(--secondary-accent-color);
 }
 
 .ratingInfo {

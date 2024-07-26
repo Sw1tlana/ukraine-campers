@@ -47,13 +47,15 @@ const Car = ({advertElement}) => {
             <h3>{advertElement.name}</h3>
               <div className={css.price}>
                 <p>&euro;{advertElement.price}.00</p>
-                
+
+                <button type="button" className={css.btnHeart} onClick={handleFavoriteClick}>
                 <svg width={20}
                   height={20}
-                  onClick={handleFavoriteClick}
                 >
-                  <use className={`${css.iconHeart} ${isFavorite ? css.favorite : ''}`} xlinkHref={`${sprite}#icon-heart`} />
-              </svg>
+                  <use className={`${css.iconHeart} ${isFavorite ? css.favorite : ''}`
+                  } xlinkHref={`${sprite}#icon-heart`} />
+                </svg>
+                </button>
                 
               </div>
             </div>
