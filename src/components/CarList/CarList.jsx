@@ -21,7 +21,8 @@ const CarList = () => {
     setVisibleCount(4);
     };
     
-    return (
+  return (
+      <>
         <div className={css.container}>
             <IconSearchBar onSubmit={handleSearch} className={css.searchBar}/>
              <div className={css.content}>
@@ -30,11 +31,12 @@ const CarList = () => {
                <Car key={advertElement._id} advertElement={advertElement} />
         ))}
             </ul>
-      {visibleCount < filteredData.length && (
-        <LoadMore onClick={handleLoadMore} />
-      )}
          </div>
-        </div>
+      </div>
+        {visibleCount < filteredData.length && (
+        <LoadMore onClick={handleLoadMore} />
+      )} 
+    </>
     )
 };
 

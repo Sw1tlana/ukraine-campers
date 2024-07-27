@@ -1,22 +1,114 @@
-
 .favoriteCarsList {
-    display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 30px;
-        padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 32px;
+    gap: 24px;
 }
 
 .carItem {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    gap: 10px;
+    min-width: 200px;
+    border: 1px solid var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    gap: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
 }
 
 .image {
-   width: 400px;
+    max-width: 400px;
+    object-fit: cover;
+    object-position: center right;
+    border-radius: 10px;
+}
+
+.wrapperInfo {
+    display: flex;
+    flex-direction: column;
 }
 
 .info {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btnHeart {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    fill: transparent;
+    stroke: var(--text-color);
+}
+
+.iconHeart {
+    fill: transparent;
+    stroke: var(--text-color);
+    cursor: pointer;
+}
+
+.iconHeart.favorite {
+    fill: var(--primery-accent-color);
+    stroke: none;
+}
+
+
+
+.ratingInfo {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.iconRating {
+    width: 20px;
+    height: 20px;
+    fill: var(--status-color);
+}
+
+.iconLocation {
+    width: 20px;
+    height: 20px;
+    fill: transparent;
+    stroke: var(--text-color);
+}
+
+.description {
+   max-width: 400px;
+   width: 100%;
+}
+
+.descriptionText {
+    color: rgba(16, 24, 40, 0.6);
+    margin-bottom: 24px;
 }

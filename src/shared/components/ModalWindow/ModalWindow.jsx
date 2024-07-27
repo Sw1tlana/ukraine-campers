@@ -6,17 +6,24 @@ import { useEffect } from 'react';
 const ModalWindow = ({ children, isOpen, onClose }) => {
   Modal.setAppElement('#root');
   
-      useEffect(() => {
+    useEffect(() => {
       const handleKeyDown = (event) => {
       if (event.key === 'Escape') { 
         onClose();
       }
-    };
+        };
+        
+    if (isOpen) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
         window.addEventListener('keydown', handleKeyDown);
     return () => {
-        window.removeEventListener('keydown', handleKeyDown); 
+      window.removeEventListener('keydown', handleKeyDown); 
+      document.body.classList.remove('no-scroll');
     }
-      }, [onClose]); 
+      }, [onClose, isOpen]); 
   
     return (
      <Modal

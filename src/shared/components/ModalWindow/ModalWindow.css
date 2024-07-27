@@ -17,8 +17,7 @@
 .modal-content {
     width: 100%;
     max-width: 982px;
-    height: auto;
-    max-height: 90vh;
+    height: 90vh;
     padding: 40px 16px;
     background-color: var(--white);
     border-radius: 20px;
@@ -50,5 +49,13 @@
     stroke-width: 0; 
 }
 
+.iconClose:active,
+.iconClose:hover {
+ stroke: var(--status-color);
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
 
 
