@@ -11,7 +11,7 @@ const AppBar = () => {
   return (
     <header className={css.header}>
       <Container>
-        <div>
+        <div className={css.centered}>
           <NavLink to="/">
            <FcAutomotive className={css.logo}/>
           </NavLink>

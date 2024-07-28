@@ -1,6 +1,5 @@
 .catalogList {
-    align-items: center;
-    justify-content: center;
+    margin: 0 auto;
     height: 100vh;
-    padding: 100px 64px;
+    padding: 34px;
 }

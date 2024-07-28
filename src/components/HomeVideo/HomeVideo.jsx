@@ -22,7 +22,7 @@ const HomeVideo = () => {
         playsInline
       >
         <source type="video/mp4" src={video} />
-      </video>
+        </video>
     </div>
     )
 };

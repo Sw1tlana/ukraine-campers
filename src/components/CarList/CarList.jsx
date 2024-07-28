@@ -22,7 +22,7 @@ const CarList = () => {
     };
     
   return (
-      <>
+      <section>
         <div className={css.container}>
             <IconSearchBar onSubmit={handleSearch} className={css.searchBar}/>
              <div className={css.content}>
@@ -36,7 +36,7 @@ const CarList = () => {
         {visibleCount < filteredData.length && (
         <LoadMore onClick={handleLoadMore} />
       )} 
-    </>
+    </section>
     )
 };
 

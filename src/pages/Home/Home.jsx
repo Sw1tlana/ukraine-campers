@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import HomeVideo from "../../components/HomeVideo/HomeVideo";
-import { AppBar } from "@mui/material";
+import Container from "../../components/Container/Container";
 
 const Home = () => {
   return (
@@ -8,8 +8,9 @@ const Home = () => {
       <Helmet>
         <title>Home</title>
       </Helmet>
-      <HomeVideo />
-      <AppBar />
+      <Container>
+          <HomeVideo />
+      </Container>
     </>
   )
 }

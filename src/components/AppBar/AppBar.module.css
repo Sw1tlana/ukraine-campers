@@ -4,6 +4,11 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 1;
+    width: 100%;
+} 
+
+.centered {
+    margin-right: auto;
 }
 
 .logo {

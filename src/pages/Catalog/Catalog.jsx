@@ -8,9 +8,9 @@ function Catalog() {
       <Helmet>
         <title>Catalog</title>
       </Helmet>
-    <div className={css.catalogList}>
-      <CarList/>
-    </div>
+        <div className={css.catalogList}>
+            <CarList />
+      </div>
   </>
   )
 }
