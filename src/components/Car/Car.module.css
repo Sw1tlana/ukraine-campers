@@ -1,5 +1,4 @@
 .carItem {
-    max-width: 840px;
     border: 1px solid var(--primary-color);
     display: grid;
     grid-template-columns: 290px 1fr;

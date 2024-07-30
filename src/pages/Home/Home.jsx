@@ -1,17 +1,17 @@
 import { Helmet } from "react-helmet-async";
 import HomeVideo from "../../components/HomeVideo/HomeVideo";
-import Container from "../../components/Container/Container";
+import css from "./Home.module.css";
+
 
 const Home = () => {
+
   return (
-    <>
+    <div className={css.homeContainer}>
       <Helmet>
         <title>Home</title>
-      </Helmet>
-      <Container>
-          <HomeVideo />
-      </Container>
-    </>
+      </Helmet> 
+      <HomeVideo />
+    </div>
   )
 }
 

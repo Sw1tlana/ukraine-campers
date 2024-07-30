@@ -1,11 +1,14 @@
 .header {
-    background-color: var(--bg-primery-color);
-    padding: 1rem 0;
+    padding: 1rem 3rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 1;
     width: 100%;
 } 
+
+.homePageHeader {
+    background-color: none;
+}
 
 .centered {
     margin-right: auto;
@@ -15,6 +18,23 @@
     font-size: 2rem;
 }
 
+.homePageLogo {
+    font-size: 4rem;
+    padding-right: 20px;
+}
+
+.homePageLink {
+   font-size: 3rem !important;
+}
+
+.homePageLink:hover {
+    color: var(--status-color);
+}
+
+.homePageLink::after {
+    background-color: var(--status-color);
+}
+
 nav {
     display: flex;
     gap: 1.5rem;
@@ -22,9 +42,9 @@ nav {
 
 .link {
     text-decoration: none;
-    color: #343a40;
-    font-size: 1rem;
-    font-weight: 500;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    font-weight: 700;
     position: relative;
     transition: color 0.3s ease-in-out;
 }
