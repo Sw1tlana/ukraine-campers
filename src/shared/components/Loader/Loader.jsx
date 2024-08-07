@@ -1,9 +1,10 @@
 import { ColorRing } from 'react-loader-spinner';
-import "./Loader.css";
+import css from "./Loader.css";
 
 const Loader = () => {
   return (
-    <div className="Loader">
+    <div className={css.loader}>
+      <div className={css.colorRing}>
         <ColorRing
             visible={true}
             height="80"
@@ -12,7 +13,8 @@ const Loader = () => {
             wrapperStyle={{}}
             wrapperClass="color-ring-wrapper"
             colors={[' #475467', '#F7F7F7', '#475467', '#F7F7F7', '#475467']}
-  />
+      />
+      </div>
     </div>
   )
 }
