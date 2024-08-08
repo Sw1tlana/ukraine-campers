@@ -23,11 +23,12 @@
 .message {
     text-align: center;
 }
+
 .goBack {
     display: block;
     font-weight: 700;
     font-size: 16px;
-    color: blue;
+    color: var(--color-blue);
     text-decoration: underline;
     margin-top: 20px;
 }
@@ -36,9 +37,12 @@
     margin: auto;
 }
 
-.ear,
+.ear {
+    background-color: var(--bg-eye-pupil);
+}
+
 .eye {
-    background-color: var(--bg-eye-color);
+    background-color: var(--status-color);
 }
 
 .eyePupil {
@@ -90,19 +94,6 @@
     width: 90%;
 }
 
-.face:before,
-.face:after {
-    content: '';
-    position: absolute;
-    width: 50%;
-    height: 15%;
-    background-color: var(--bg-eye-color);
-    top: 15%;
-    left: 0;
-    border-radius: 10px;
-    transform: rotate(-30deg);
-}
-
 .face:after {
     left: auto;
     right: 0;
@@ -128,7 +119,7 @@
     height: 50%;
     left: -2vh;
     right: -2vh;
-    background-color: var(--bg-eye-color);
+    background-color: var(--bg-eye-pupil);
     border-radius: 0 0 35% 35%;
     z-index: 2;
     animation: eyes 5s ease infinite;
@@ -175,7 +166,7 @@
 
 .nose {
     border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
-    background-color: var(--bg-eye-color);
+    background-color: var(--bg-eye-pupil);
     width: 4vh;
     height: 2vh;
     margin: auto;
@@ -192,16 +183,4 @@
     2% {
         height: 110%;
     }
-}
-
-.goBack {
-    display: block;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.29;
-    letter-spacing: -0.01em;
-    text-decoration: underline;
-    text-align: center;
-    color: var(--white);
-    margin-bottom: 20px;
 }

@@ -1,5 +1,3 @@
-
-// import css from './App.module.css';
 import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from "react";
 import Layout from "./components/Layout/Layout";

@@ -23,10 +23,11 @@ const Favorites = () => {
   };
   
   return (
-    <>
+    <section>
       <Helmet>
         <title>Favorites</title>
       </Helmet>
+      {favoriteCars.length > 0 ? (
         <ul className={css.favoriteCarsList}>
           {favoriteCars.length > 0 && favoriteCars.map((car) => (
             <li key={car._id} className={css.carItem}>
@@ -77,7 +78,15 @@ const Favorites = () => {
             </li>
           ))}
         </ul>
-    </>
+      ) : (
+      <div className={css.camperContainer}>
+        <div className={css.camper}>
+          <div className={`${css.wheel} ${css.frontWheel}`}></div>
+          <div className={`${css.wheel} ${css.backWheel}`}></div>
+        </div>
+      </div>
+        )}
+    </section>
   )
 };
 

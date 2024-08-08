@@ -2,12 +2,20 @@
     padding: 1rem 3rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
-    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    z-index: 3;
 } 
 
 .homePageHeader {
-    background-color: none;
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
 }
 
 .centered {

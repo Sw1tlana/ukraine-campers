@@ -1,14 +1,18 @@
 import { NavLink } from 'react-router-dom';
 import css from "./NoutFoundPage.module.css";
+import { Helmet } from "react-helmet-async";
 import Container from "../../components/Container/Container";
 
 const NoutFoundPage = () => {
     return (
-<Container>
+      <Container>
+    <Helmet>
+        <title>NoutFoundPage</title>
+    </Helmet>
   <div className={css.positionCat}>
     <h2 className={css.titlePage}>404</h2>
     <p className={css.message}>
-      {`Don't panic, take a sip of water and go back to main page to try again.`}
+        Don’t panic, take a sip of water and go back to the main page to try again.
     </p>
     <NavLink to="/" className={css.goBack}>
       Return to the main page

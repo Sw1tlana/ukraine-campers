@@ -1,3 +1,4 @@
+
 .favoriteCarsList {
     display: flex;
     justify-content: center;
@@ -111,4 +112,65 @@
 .descriptionText {
     color: rgba(16, 24, 40, 0.6);
     margin-bottom: 24px;
+}
+
+.camperContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+
+    position: relative;
+}
+
+.camper {
+    position: relative;
+    width: 160px;
+    height: 80px;
+    background-color: var(--color-blue);
+    border-radius: 10px;
+    animation: move 3s linear infinite;
+}
+
+.camper::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 120px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.wheel {
+    position: absolute;
+    bottom: -15px;
+    width: 30px;
+    height: 30px;
+    background-color: #333;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.frontWheel {
+    left: 20px;
+}
+
+.backWheel {
+    right: 20px;
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(30px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
