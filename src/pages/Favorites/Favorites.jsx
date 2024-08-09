@@ -83,7 +83,8 @@ const Favorites = () => {
         <div className={css.camper}>
           <div className={`${css.wheel} ${css.frontWheel}`}></div>
           <div className={`${css.wheel} ${css.backWheel}`}></div>
-        </div>
+            </div>
+             <p className={css.addToFavorites}>Add to Favorites</p>
       </div>
         )}
     </section>

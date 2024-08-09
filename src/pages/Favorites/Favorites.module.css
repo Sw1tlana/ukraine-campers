@@ -74,8 +74,6 @@
     stroke: none;
 }
 
-
-
 .ratingInfo {
     display: flex;
     gap: 16px;
@@ -129,7 +127,7 @@
     height: 80px;
     background-color: var(--color-blue);
     border-radius: 10px;
-    animation: move 3s linear infinite;
+    animation: move 8s linear infinite;
 }
 
 .camper::before {
@@ -139,7 +137,7 @@
     left: 20px;
     width: 120px;
     height: 30px;
-    background-color: #fff;
+    background-color: var(--white);
     border-radius: 5px;
 }
 
@@ -148,7 +146,7 @@
     bottom: -15px;
     width: 30px;
     height: 30px;
-    background-color: #333;
+    background-color: var(--text-color);
     border-radius: 50%;
     z-index: 1;
 }
@@ -161,13 +159,20 @@
     right: 20px;
 }
 
+.addToFavorites {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
 @keyframes move {
     0% {
-        transform: translateX(0);
+        transform: translateX(-10px);
     }
 
     50% {
-        transform: translateX(30px);
+        transform: translateX(162px);
     }
 
     100% {

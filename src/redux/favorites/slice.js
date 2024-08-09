@@ -10,7 +10,19 @@ export const initialStateCar = {
         location: '',
         details: [],
         form: ''
-    } 
+    },
+    page: 1,
+    limit: 4,
+    totalPages: 0
+}
+
+const handlePending = (state) => {
+    state.isLoading = true;
+};
+
+const handleRejected = (state, action) => {
+    state.loading = false;
+    state.error = action.payload;
 }
 
 const carsSlice = createSlice({
@@ -40,25 +52,37 @@ const carsSlice = createSlice({
         },
         resetFilters: (state) => {
             state.filters = {};
+        },
+        setPage: (state, action) => {
+            state.page = action.payload;
+        },
+        setLimit: (state, action) => {
+            state.limit = action.payload;
+        },
+        setTotalPages: (state, action) => {
+            state.totalPages = action.payload;
         }
     },
 
     extraReducers: (builder) => {
         builder
-            .addCase(getCamper.pending, (state) => {
-                state.isLoading = true;
-            })
+            .addCase(getCamper.pending, handlePending)
             .addCase(getCamper.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.error = null;
                 state.cars = action.payload;
             })
-            .addCase(getCamper.rejected, (state, action) => {
-                state.isLoading = false;
-                state.error = action.payload;
-            })
+            .addCase(getCamper.rejected, handleRejected)
     }
 });
 
 export const carsReducer = carsSlice.reducer;
-export const { addFavorite, deleteFavorite, setFilters, resetFilters } = carsSlice.actions;
+export const {
+    addFavorite,
+    deleteFavorite,
+    setFilters,
+    resetFilters,
+    setPage,
+    setLimit,
+    setTotalPages
+} = carsSlice.actions;

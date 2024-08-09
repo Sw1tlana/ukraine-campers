@@ -6,7 +6,7 @@ import css from "./AppBar.module.css";
 
 const AppBar = () => {
   const location = useLocation(); 
-  const isHome = location.pathname === "/"; 
+  const isHome = location.pathname === "/";
 
   return (
     <header className={clsx(css.header, isHome && css.homePageHeader)}>
