@@ -21,7 +21,7 @@ const handlePending = (state) => {
 };
 
 const handleRejected = (state, action) => {
-    state.loading = false;
+    state.isLoading = false;
     state.error = action.payload;
 }
 
@@ -68,6 +68,7 @@ const carsSlice = createSlice({
         builder
             .addCase(getCamper.pending, handlePending)
             .addCase(getCamper.fulfilled, (state, action) => {
+                  console.log('API Data:', action.payload); 
                 state.isLoading = false;
                 state.error = null;
                 state.cars = action.payload;

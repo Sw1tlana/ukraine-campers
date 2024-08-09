@@ -11,7 +11,8 @@ export const getCamper = createAsyncThunk("camper/fetchAll",
                     ...filters
                 }
             });
-            return response.data || [];
+            console.log('API Response:', response.data); 
+            return response.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
         }

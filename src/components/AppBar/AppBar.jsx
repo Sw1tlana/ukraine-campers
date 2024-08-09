@@ -16,7 +16,7 @@ const AppBar = () => {
            <FcAutomotive className={clsx(css.logo, isHome && css.homePageLogo)}/>
           </NavLink>
         </div>
-          <nav>
+        <nav className={css.nav}>
           <NavLink to="/" className={({ isActive }) =>
             clsx(css.link, isActive && css.active, isHome && css.homePageLink)}>
                 Home  
@@ -28,10 +28,10 @@ const AppBar = () => {
           <NavLink to="favorites" className={({ isActive }) =>
             clsx(css.link, isActive && css.active, isHome && css.homePageLink)}>
                  Favorites
-                </NavLink>
-           </nav>
+          </NavLink>
+        </nav>
       </Container>
-      </header>
+    </header>
   )
 }
 

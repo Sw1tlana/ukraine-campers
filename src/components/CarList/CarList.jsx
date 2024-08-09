@@ -6,16 +6,24 @@ import LoadMore from '../LoadMore/LoadMore';
 import IconSearchBar from '../IconSearchBar/IconSearchBar';
 import { setPage, setFilters } from '../../redux/favorites/slice';
 import { getCamper } from '../../redux/favorites/operation';
-import { selectCars } from '../../redux/favorites/selectors';
+import { selectCars, selectFilters,selectTotalPages, selectPage } from '../../redux/favorites/selectors';
+import localData from '../../shared/data/data.json';
 
 const CarList = () => {
   const dispatch = useDispatch();
-  const { cars = [], isLoading, totalPages, page, filters } = useSelector(selectCars);
+  const totalPages = useSelector(selectTotalPages);
+  const page = useSelector(selectPage);
+  const filters = useSelector(selectFilters);
+  const cars = useSelector(selectCars);
 
   useEffect(() => {
-
+console.log('Fetching campers with:', { page, filters });
         dispatch(getCamper({ page, limit: 4, filters }));
-      }, [dispatch, page, filters]);
+  }, [dispatch, page, filters]);
+  console.log('Cars:', cars);
+console.log('Total Pages:', totalPages);
+console.log('Current Page:', page);
+console.log('Filters:', filters);
   
   
     const handleLoadMore = () => {
@@ -27,29 +35,29 @@ const CarList = () => {
     const handleSearch = (query) => {
       dispatch(setFilters({ ...filters, location: query }));
       dispatch(setPage(1)); 
-    };
+  };
+  
+    const filteredLocalData = localData.filter(item => {
+      return (!filters.location || item.location.toLowerCase().includes(filters.location.toLowerCase()));
+  });
     
   return (
      <section>
       <div className={css.container}>
         <IconSearchBar onSubmit={handleSearch} className={css.searchBar} />
         <div className={css.content}>
-          {isLoading ? (
-            <p>Loading...</p>
-          ) : (
             <ul className={css.carList}>
-              {cars.length > 0 ? (
-                cars.map((advertElement) => (
+              {filteredLocalData.length > 0 ? (
+                filteredLocalData.map((advertElement) => (
                   <Car key={advertElement._id} advertElement={advertElement} />
                 ))
               ) : (
                 <p>No cars found</p>
               )}
             </ul>
-          )}
         </div>
       </div>
-      {page < totalPages && !isLoading && (
+      {page < totalPages && (
         <LoadMore onClick={handleLoadMore} />
       )}
     </section>
