@@ -12,7 +12,7 @@ export const initialStateCar = {
         form: ''
     },
     page: 1,
-    limit: 4,
+    limit: 2,
     totalPages: 0
 }
 
@@ -68,10 +68,11 @@ const carsSlice = createSlice({
         builder
             .addCase(getCamper.pending, handlePending)
             .addCase(getCamper.fulfilled, (state, action) => {
-                  console.log('API Data:', action.payload); 
                 state.isLoading = false;
                 state.error = null;
                 state.cars = action.payload;
+                const totalItems = action.payload.totalItems || action.payload.length || 0;
+                state.totalPages = totalItems ? Math.ceil(totalItems / state.limit) : 1;
             })
             .addCase(getCamper.rejected, handleRejected)
     }

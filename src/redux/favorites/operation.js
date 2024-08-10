@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 export const getCamper = createAsyncThunk("camper/fetchAll",
     async ({page, limit, filters }, thunkAPI) => {
@@ -11,9 +12,10 @@ export const getCamper = createAsyncThunk("camper/fetchAll",
                     ...filters
                 }
             });
-            console.log('API Response:', response.data); 
+            toast.success("Camper data fetched successfully!");
             return response.data;
         } catch (error) {
+            toast.error("Failed to fetch camper data.");
             return thunkAPI.rejectWithValue(error.message);
         }
     }

@@ -1,3 +1,77 @@
+/* burger */
+.burgerContainer {
+    display: none;
+}
+
+.burgerButton {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 0;
+}
+
+.burgerButton span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 4px 0;
+    transition: 0.4s;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.burgerButton:hover span {
+    background-color: var(--status-color);
+}
+
+.burgerButton:active span {
+    transform: scale(0.4);
+}
+
+.burgerButton.active .line1 {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.burgerButton.active .line2 {
+    opacity: 0;
+}
+
+.burgerButton.active .line3 {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+.burgerMenu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: absolute;
+    top: 70px;
+    left: 20px;
+    font-size: 14px;
+    background-color: var(--white);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 20;
+}
+
+.burgerMenu.show {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .burgerContainer {
+        display: flex;
+    }
+
+    .nav {
+        display: none;
+    }
+}
+
 .header {
     padding: 1rem 3rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -6,7 +80,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 3;
+    z-index: 10;
 } 
 
 .homePageHeader {
@@ -31,58 +105,10 @@
     padding-right: 20px;
 }
 
-.homePageLink {
-   font-size: 3rem !important;
-}
-
-.homePageLink:hover {
-    color: var(--status-color);
-}
-
-.homePageLink::after {
-    background-color: var(--status-color);
-}
 
 nav {
     display: flex;
     gap: 1.5rem;
 }
 
-.link {
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: 1.5rem;
-    font-weight: 700;
-    position: relative;
-    transition: color 0.3s ease-in-out;
-}
 
-.link::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background-color: var(--status-color);
-    transition: width 0.3s;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-}
-
-.link:hover {
-    color: var(--status-color);
-}
-
-.link:hover::after {
-    width: 100%;
-}
-
-.active {
-    color: var(--status-color);
-}
-
-.active::after {
-    width: 100%;
-}
-
-/* burgerMenu */

@@ -6,7 +6,7 @@ import LoadMore from '../LoadMore/LoadMore';
 import IconSearchBar from '../IconSearchBar/IconSearchBar';
 import { setPage, setFilters } from '../../redux/favorites/slice';
 import { getCamper } from '../../redux/favorites/operation';
-import { selectCars, selectFilters,selectTotalPages, selectPage } from '../../redux/favorites/selectors';
+import { selectFilters, selectTotalPages, selectPage } from '../../redux/favorites/selectors';
 import localData from '../../shared/data/data.json';
 
 const CarList = () => {
@@ -14,18 +14,12 @@ const CarList = () => {
   const totalPages = useSelector(selectTotalPages);
   const page = useSelector(selectPage);
   const filters = useSelector(selectFilters);
-  const cars = useSelector(selectCars);
+  // const cars = useSelector(selectCars);
 
   useEffect(() => {
-console.log('Fetching campers with:', { page, filters });
         dispatch(getCamper({ page, limit: 4, filters }));
   }, [dispatch, page, filters]);
-  console.log('Cars:', cars);
-console.log('Total Pages:', totalPages);
-console.log('Current Page:', page);
-console.log('Filters:', filters);
-  
-  
+
     const handleLoadMore = () => {
           if (page < totalPages) {
             dispatch(setPage(page + 1));
@@ -41,19 +35,19 @@ console.log('Filters:', filters);
       return (!filters.location || item.location.toLowerCase().includes(filters.location.toLowerCase()));
   });
     
+  const displayedCars = filteredLocalData.slice(0, page * 4);
+
   return (
-     <section>
+     <section className={css.containerContactList}>
       <div className={css.container}>
         <IconSearchBar onSubmit={handleSearch} className={css.searchBar} />
         <div className={css.content}>
             <ul className={css.carList}>
-              {filteredLocalData.length > 0 ? (
-                filteredLocalData.map((advertElement) => (
-                  <Car key={advertElement._id} advertElement={advertElement} />
-                ))
-              ) : (
-                <p>No cars found</p>
-              )}
+            {displayedCars.length > 0 &&
+              displayedCars.map((advertElement) => (
+                <Car key={advertElement._id} advertElement={advertElement} />
+              ))
+            }
             </ul>
         </div>
       </div>
