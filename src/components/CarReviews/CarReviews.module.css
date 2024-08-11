@@ -1,3 +1,9 @@
+.containerFormReviews {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
 .reviewsContainer {
     display: flex;
     flex-direction: column;
@@ -15,7 +21,7 @@
 
 .reviewComment {
     color: var(--secondary-color);
-    max-width: 430px;
+    max-width: 300px;
 }
 
 .reviewerName {
@@ -25,7 +31,10 @@
     margin-bottom: 4px;
 }
 
-.containerFormReviews {
-    display: flex;
-    gap: 24px;
+
+@media (min-width: 769px) {
+    
+        .reviewComment {
+            max-width: 430px;
+        }
 }

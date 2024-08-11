@@ -17,7 +17,7 @@ const IconSearchBar = ({onSubmit}) => {
     };
 
     return (
-
+<section>
     <form onSubmit={handleSubmit}>
        <div className={css.searchContainer}>
         <h2 className={css.title}>Location</h2>
@@ -44,7 +44,7 @@ const IconSearchBar = ({onSubmit}) => {
                 <svg width={28} height={24}>
                     <use xlinkHref={`${sprite}#icon-AC`} />
                 </svg>
-                        <p>AC</p>
+                        <p className={css.serchIcon}>AC</p>
                     </div>
                 </li>
                 
@@ -53,7 +53,7 @@ const IconSearchBar = ({onSubmit}) => {
                 <svg width={28} height={24}>
                    <use className={css.icon} xlinkHref={`${sprite}#icon-authomatic`} />
                 </svg>
-                        <p>Authomatic</p>
+                        <p className={css.serchIcon}>Authomatic</p>
                     </div>
                 </li>
 
@@ -62,7 +62,7 @@ const IconSearchBar = ({onSubmit}) => {
                 <svg width={28} height={24}>
                     <use className={css.icon} xlinkHref={`${sprite}#icon-kitchen`} />
                  </svg>
-                        <p>Kitchen</p>
+                        <p className={css.serchIcon}>Kitchen</p>
                     </div>
                 </li>
 
@@ -71,7 +71,7 @@ const IconSearchBar = ({onSubmit}) => {
                 <svg width={28} height={24}>
                     <use className={css.icon} xlinkHref={`${sprite}#icon-TV`} />
                 </svg>
-                        <p>TV</p>
+                        <p className={css.serchIcon}>TV</p>
                     </div>
                 </li>
 
@@ -80,7 +80,7 @@ const IconSearchBar = ({onSubmit}) => {
                 <svg width={28} height={24}>
                     <use className={css.icon} xlinkHref={`${sprite}#icon-WC`} />
                 </svg>
-                        <p>Shower/WC</p>
+                        <p className={css.serchIcon}>Shower/WC</p>
                     </div>
                 </li>
 
@@ -92,17 +92,17 @@ const IconSearchBar = ({onSubmit}) => {
                     <ul className={css.listEquipment}>
                         <li className={css.containerSearchIcon}>
                             <svg width={40} height={28}>
-                                <use  xlinkHref={`${sprite}#icon-VAN`} />
+                                <use className={css.serchIcon}  xlinkHref={`${sprite}#icon-VAN`} />
                             </svg>
                         </li>
                         <li className={css.containerSearchIcon}>
                            <svg width={40} height={28}>
-                                <use  xlinkHref={`${sprite}#icon-Fully`} />
+                                <use className={css.serchIcon}  xlinkHref={`${sprite}#icon-Fully`} />
                            </svg>
                         </li>
                         <li className={css.containerSearchIcon}>
                             <svg width={40} height={28}>
-                                 <use  xlinkHref={`${sprite}#icon-Alcove`} />
+                                 <use className={css.serchIcon}  xlinkHref={`${sprite}#icon-Alcove`} />
                             </svg>
                         </li>
                     </ul>
@@ -110,7 +110,8 @@ const IconSearchBar = ({onSubmit}) => {
 
             </div>
              <button className={css.btnSearch}>Search</button>
-        </form>
+            </form>
+        </section>
     )
 };
 

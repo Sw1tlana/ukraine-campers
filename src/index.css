@@ -38,8 +38,10 @@ body {
 }
 
 @media screen and (min-width: 1440px) {
-    .position {
+    .parentContainer{
         width: 100%;
+        margin: 0 auto;
+        max-width: 1200px;
     }
 }
 

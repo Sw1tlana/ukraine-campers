@@ -1,20 +1,19 @@
-
-
 .searchContainer {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-bottom: 32px;
+    gap: 4px;
+    padding: 8px;
+    margin-bottom: 24px;
 }
 
 .title {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
-    color: rgba(16, 24, 40, 0.6);
+    color: var(--bg-color-title);
 }
 
 .filter {
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 
 .searchContainerLocation {
@@ -39,8 +38,8 @@
 }
 
 .searchInput {
-    max-width: 360px;
-    height: 56px;
+    max-width: 300px;
+    height: 46px;
     padding: 18px 218px 18px 40px;
     outline: none;
     display: flex;
@@ -64,26 +63,28 @@
 .text {
     font-size: 20px;
     font-weight: 600;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .border {
-    border: 1px solid rgba(16, 24, 40, 0.1);
-    margin-bottom: 24px;
+    border: 1px solid var(--bg-color-border);
+    margin-bottom: 20px;
 }
 
 .listEquipment {
     display: flex;
     flex-wrap: wrap;
     gap: 8px 10px;
-    margin-bottom: 32px;
+    margin-bottom: 26px;
 }
 
 .containerSearchIcon {
-    width: 113px;
-    height: 95px;
+    min-width: 96px;
+    height: 90px;
+    height: 100%;
     border: 1px solid rgba(16, 24, 40, 0.2);
     border-radius: 10px;
+    padding: 10px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -103,9 +104,14 @@
     stroke: var(--text-color);
 }
 
+
+.serchIcon {
+  font-size: 14px;
+}
+
 .btnSearch {
-    width: 166px;
-    height: 56px;
+    width: 140px;
+    height: 46px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -125,4 +131,78 @@
 .btnSearch:hover,
 .btnSearch:active {
     background-color: var(--secondary-accent-color);
+}
+
+@media (min-width: 769px) {
+.searchContainer {
+        padding: 14px;
+        gap: 8px;
+        margin-bottom: 32px;
+    }
+
+    .title {
+        font-size: 16px;
+    }
+
+    .filter {
+        margin-bottom: 14px;
+    }
+
+    .searchInput {
+        max-width: 360px;
+        height: 56px;
+    }
+
+    .searchInput::placeholder {
+        font-size: 16px;
+        color: var(--text-color);
+    }
+
+    .searchInput:hover,
+    .searchInput:active {
+        border: 1px solid var(--status-color);
+    }
+
+    .text {
+        margin-bottom: 24px;
+    }
+
+    .border {
+        margin-bottom: 24px;
+    }
+
+    .listEquipment {
+        margin-bottom: 32px;
+    }
+
+    .containerSearchIcon {
+        width: 113px;
+        height: 95px;
+    }
+
+    .containerSearchIcon:hover,
+    .containerSearchIcon:active {
+        border: 1px solid var(--secondary-accent-color);
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+        fill: transparent;
+        stroke: var(--text-color);
+    }
+
+    .serchIcon {
+        font-size: 20px;
+    }
+
+    .btnSearch {
+        width: 166px;
+        height: 56px;
+    }
+
+    .btnSearch:hover,
+    .btnSearch:active {
+        background-color: var(--secondary-accent-color);
+    }
 }

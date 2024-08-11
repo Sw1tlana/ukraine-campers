@@ -4,7 +4,7 @@ import FormBook from '../FormBook/FormBook';
 
 const CarReviews = ({ data }) => {
   return (
-    <div className={css.containerFormReviews}>
+    <section className={css.containerFormReviews}>
     <ul className={css.reviewsContainer}>
       {data.map((review, index) => (
         <li key={index} className={css.reviewInfo}>
@@ -21,7 +21,7 @@ const CarReviews = ({ data }) => {
       ))}
       </ul>
       <FormBook/>
-    </div>
+    </section>
   );
 };
 

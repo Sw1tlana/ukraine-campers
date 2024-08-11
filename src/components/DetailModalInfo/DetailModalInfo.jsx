@@ -11,9 +11,9 @@ const DetailModalInfo = ({ db }) => {
   const [active, setActive] = useState("features");
   
   const handleClick = (tab) => {
-       console.log(tab);
     setActive(tab);
   };
+
   const isDetailsValid = db && db.details && typeof db.details === 'object';
 
     return (
@@ -39,7 +39,7 @@ const DetailModalInfo = ({ db }) => {
 
          <CustomScrollWrapper>
         <div className={css.containerWrapp}>
-        <ul className={css.listModalimg}>
+        <ul className={css.listModalImg}>
         {db.gallery.map((img, index) => (
           <li key={index}>
             <img className={css.itemImg} src={img} alt={db.name} />

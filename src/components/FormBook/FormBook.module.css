@@ -1,5 +1,5 @@
 .formContainer {
-    max-width: 448px;
+    max-width: 320px;
     width: 100%;
     max-height: 532px;
     height: auto;
@@ -56,4 +56,10 @@
 .submitBtn:hover,
 .submitBtn:active {
     background-color: var(--secondary-accent-color);
+}
+
+@media (min-width: 769px) { 
+    .formContainer {
+            max-width: 448px;
+    }
 }

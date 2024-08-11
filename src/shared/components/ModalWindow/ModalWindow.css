@@ -9,6 +9,7 @@
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.7) !important;
     overflow: hidden;
+    padding: 20px;
     z-index: 100;
     opacity: 1;
     transition: opacity 0.3s;
@@ -16,7 +17,7 @@
 
 .modal-content {
     width: 100%;
-    max-width: 982px;
+    max-width: 480px;
     height: 90vh;
     padding: 40px 16px;
     background-color: var(--white);
@@ -58,4 +59,14 @@ body.no-scroll {
     overflow: hidden;
 }
 
+@media (min-width: 769px) {
+
+    .modal-overlay {
+        padding: 0;
+    }
+
+    .modal-content {
+        max-width: 982px;
+    }
+}
 

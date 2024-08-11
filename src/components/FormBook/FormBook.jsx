@@ -29,9 +29,9 @@ const onSubmit = async (data) => {
         data.bookingDate = new Date(data.bookingDate).toISOString();
         
         await dispatch(addBookings(data)).unwrap();
-    
-        reset();
+        
         toast.success('Booking successfully added! 🎉');
+        reset();
     } catch (error) {
         toast.error('Something went wrong! 😞');
     }

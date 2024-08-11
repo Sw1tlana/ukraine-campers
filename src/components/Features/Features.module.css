@@ -1,9 +1,9 @@
 .featuresList {
-    max-width: 430px;
+    max-width: 280px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;  
-    margin-bottom: 25px;
+    margin-bottom: 18px;
 }
 
 .featureItem {
@@ -27,7 +27,7 @@
     align-items: center;
     max-width: 100%;
     gap: 4px;
-    padding: 12px 18px;
+    padding: 10px 14px;
     background-color: var(--primary-color);
     border-radius: 100px;
     white-space: nowrap;
@@ -36,7 +36,7 @@
 }
 
 .titleVehicle {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     line-height: 1.2;
     position: relative;
@@ -46,7 +46,7 @@
 .titleVehicle::after {
     content: "";
     display: block;
-    width: 430px;
+    width: 100%;
     height: 2px;
     border: 1px solid rgba(16, 24, 40, 0.1);
     position: absolute;
@@ -58,7 +58,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 430px;
+    width: 280px;
 }
 
 .detailsItem {
@@ -69,4 +69,35 @@
 .detailsText {
     font-weight: 500;
     line-height: 1.3;
+}
+
+@media (min-width: 769px) {
+.featuresList {
+        max-width: 430px;
+        margin-bottom: 25px;
+    }
+    
+    .containerIconGroup {
+        padding: 12px 18px;
+    }
+
+    .titleVehicle {
+        font-size: 20px;
+    }
+
+    .titleVehicle::after {
+        content: "";
+        display: block;
+        width: 430px;
+        height: 2px;
+        border: 1px solid rgba(16, 24, 40, 0.1);
+        position: absolute;
+        bottom: -24px;
+        left: 0;
+    }
+
+    .detailsList {
+        width: 430px;
+    }
+
 }

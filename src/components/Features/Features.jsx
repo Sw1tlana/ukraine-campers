@@ -1,5 +1,5 @@
 import { icons as sprite } from "../../shared/icons/index";
-import css from "./Features.module.css"; // Імпортуємо CSS модулі
+import css from "./Features.module.css"; 
 
 const Features = ({ db }) => {
 
@@ -121,7 +121,7 @@ const Features = ({ db }) => {
   ];
 
   return (
-    <div>
+    <section>
       <ul className={css.featuresList}>
         {featuresData.map(({ title, svg, className, condition = true }) =>
           condition ? (
@@ -169,7 +169,7 @@ const Features = ({ db }) => {
           <p className={css.detailsText}>{db.consumption}</p>
         </li>
       </ul>
-    </div>
+    </section>
   );
 };
 

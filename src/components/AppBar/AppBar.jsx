@@ -11,17 +11,15 @@ const AppBar = () => {
   const isHome = location.pathname === "/";
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  console.log("isMenuOpen:", isMenuOpen);
 
   const toggleMenu = () => {
-    console.log(isMenuOpen); 
     setIsMenuOpen(prevState => !prevState);
   }
   
   const closeMenu = () => {
-    console.log("Closing menu");
     setIsMenuOpen(false);
   }
+  
   return (
     <header className={clsx(css.header, isHome && css.homePageHeader)}>
       <Container>

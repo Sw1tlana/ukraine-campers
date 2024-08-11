@@ -14,4 +14,7 @@
     --bg-eye: #4D4D4D;
     --color-blue: #5932f5;
 
+    --bg-color-title: rgba(16, 24, 40, 0.6);
+    --bg-color-border: rgba(16, 24, 40, 0.1);
+    --bg-box-shadow: rgba(0, 0, 0, 0.2);
 }
