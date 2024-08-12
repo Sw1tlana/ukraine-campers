@@ -44,7 +44,7 @@ const Car = ({advertElement}) => {
       <div className={css.wrapperInfo}>
       <div className={css.containerInfo}>
         <div className={css.info}>
-            <h3>{advertElement.name}</h3>
+            <h3 className={css.titleName}>{advertElement.name}</h3>
               <div className={css.price}>
                 <p>&euro;{advertElement.price}.00</p>
 

@@ -19,8 +19,9 @@ const AppBar = () => {
   const closeMenu = () => {
     setIsMenuOpen(false);
   }
-  
+ 
   return (
+    <>
     <header className={clsx(css.header, isHome && css.homePageHeader)}>
       <Container>
         <div className={css.centered}>
@@ -42,7 +43,8 @@ const AppBar = () => {
           <NavLinks isHome={isHome} />
         </nav>
       </Container>
-    </header>
+      </header>
+    </>
   )
 }
 

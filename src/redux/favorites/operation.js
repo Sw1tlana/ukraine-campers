@@ -16,6 +16,7 @@ export const getCamper = createAsyncThunk("camper/fetchAll",
             return response.data;
         } catch (error) {
             toast.error("Failed to fetch camper data.");
+             console.error("Error response:", error.response);
             return thunkAPI.rejectWithValue(error.message);
         }
     }

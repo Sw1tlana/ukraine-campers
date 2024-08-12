@@ -18,7 +18,7 @@ const DetailModalInfo = ({ db }) => {
 
     return (
       <>
-        <div className={css.containerInfo}>
+        <section className={css.containerInfo}>
         <div className={css.info}>
             <h3 className={css.titleInfo}>{db.name}</h3>
             </div>
@@ -35,7 +35,7 @@ const DetailModalInfo = ({ db }) => {
             <div className={css.price}>
               <p>&euro;{db.price}.00</p>
             </div> 
-        </div>
+        </section>
 
          <CustomScrollWrapper>
         <div className={css.containerWrapp}>
@@ -46,8 +46,9 @@ const DetailModalInfo = ({ db }) => {
           </li>
         ))}
       </ul>
-
-      <p className={css.description}>{db.description}</p>
+      <div className={css.containerDescription}>
+            <p className={css.description}>{db.description}</p>
+      </div>
       </div>
           
      <nav>

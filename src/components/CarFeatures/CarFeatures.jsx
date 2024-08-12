@@ -6,7 +6,7 @@ import css from "./CarFeatures.module.css";
 const CarFeatures = ({ data }) => {
 
     return (
-        <div className={css.containerFormReviews}>
+        <div className={css.containerFeature}>
             <Features db={data} />
             <FormBook/>
         </div>

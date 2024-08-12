@@ -1,4 +1,3 @@
-// import css from "./Reviews.module.css";
 
 const Reviews = ({ data }) => {
   return (

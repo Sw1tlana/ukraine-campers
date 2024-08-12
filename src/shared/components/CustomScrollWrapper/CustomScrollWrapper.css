@@ -1,6 +1,6 @@
 
 .customScrollWrapper {
-    max-height: 340px;
+    height: 75%;
 }
 
 .customScrollWrapper .simplebar-scrollbar::before {
@@ -10,10 +10,4 @@
 .customScrollWrapper .simplebar-track {
     background-color: var(--scroll-color);
     border-radius: 7px;
-}
-
-@media (min-width: 769px) {
-    .customScrollWrapper {
-    max-height: 470px;
-}
 }
