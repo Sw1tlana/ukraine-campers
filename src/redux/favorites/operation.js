@@ -2,10 +2,12 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
+const API_URL = 'http://localhost:3000/api';
+
 export const getCamper = createAsyncThunk("camper/fetchAll",
     async ({page, limit, filters }, thunkAPI) => {
         try {
-            const response = await axios.get('https://669ce4de15704bb0e3048ae2.mockapi.io/adverts', {
+            const response = await axios.get(`${API_URL}/campers`, {
                 params: {
                     page,
                     limit,

@@ -6,15 +6,14 @@ import LoadMore from '../LoadMore/LoadMore';
 import IconSearchBar from '../IconSearchBar/IconSearchBar';
 import { setPage, setFilters } from '../../redux/favorites/slice';
 import { getCamper } from '../../redux/favorites/operation';
-import { selectFilters, selectTotalPages, selectPage } from '../../redux/favorites/selectors';
-import localData from '../../shared/data/data.json';
+import { selectFilters, selectTotalPages, selectPage, selectCars} from '../../redux/favorites/selectors';
 
 const CarList = () => {
   const dispatch = useDispatch();
   const totalPages = useSelector(selectTotalPages);
   const page = useSelector(selectPage);
   const filters = useSelector(selectFilters);
-  // const cars = useSelector(selectCars);
+  const cars = useSelector(selectCars);
 
   useEffect(() => {
         dispatch(getCamper({ page, limit: 4, filters }));
@@ -31,7 +30,7 @@ const CarList = () => {
       dispatch(setPage(1)); 
   };
   
-    const filteredLocalData = localData.filter(item => {
+    const filteredLocalData = cars.filter(item => {
       return (!filters.location || item.location.toLowerCase().includes(filters.location.toLowerCase()));
   });
     
