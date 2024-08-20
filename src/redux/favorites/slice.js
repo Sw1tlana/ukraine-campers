@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getCamper } from "./operation";
 
 export const initialStateCar = {
-    cars: [],
+    cars: { campers: [] },
     isLoading: false,
     error: null,
     favoriteCar: [],
@@ -12,7 +12,7 @@ export const initialStateCar = {
         form: ''
     },
     page: 1,
-    limit: 2,
+    limit: 4,
     totalPages: 0
 }
 
@@ -51,7 +51,7 @@ const carsSlice = createSlice({
             state.filters = action.payload;
         },
         resetFilters: (state) => {
-            state.filters = {};
+             state.filters = { location: '', details: [], form: '' };
         },
         setPage: (state, action) => {
             state.page = action.payload;
@@ -68,11 +68,22 @@ const carsSlice = createSlice({
         builder
             .addCase(getCamper.pending, handlePending)
             .addCase(getCamper.fulfilled, (state, action) => {
+                console.log("API Відповідь:", action.payload);
                 state.isLoading = false;
                 state.error = null;
-                state.cars = action.payload;
-                const totalItems = action.payload.totalItems || action.payload.length || 0;
-                state.totalPages = totalItems ? Math.ceil(totalItems / state.limit) : 1;
+
+            const { campers, total } = action.payload;
+                state.totalPages = total ? Math.ceil(total / state.limit) : 1;
+                
+                    console.log("Отримані кампери:", campers);
+    console.log("Старі кампанери:", state.cars.campers);
+
+                           if (Array.isArray(campers)) {
+                state.cars.campers = [...state.cars.campers, ...campers];
+            }
+
+ console.log("Оновлені кампанери:", state.cars.campers);
+
             })
             .addCase(getCamper.rejected, handleRejected)
     }

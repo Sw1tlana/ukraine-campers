@@ -13,6 +13,7 @@ export const getCamper = createAsyncThunk("camper/fetchAll",
                 }
             });
             toast.success("Camper data fetched successfully!");
+              console.log('API Response:', response.data);
             return response.data;
         } catch (error) {
             toast.error("Failed to fetch camper data.");

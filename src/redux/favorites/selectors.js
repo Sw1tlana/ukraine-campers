@@ -5,3 +5,4 @@ export const selectError = (state) => state.favorite.error;
 export const selectTotalPages = (state) => state.favorite.totalPages;
 export const selectPage = (state) => state.favorite.page;
 export const selectFilters = (state) => state.favorite.filters;
+export const selectLimit = (state) => state.favorite.limit;

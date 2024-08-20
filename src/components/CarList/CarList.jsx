@@ -6,18 +6,27 @@ import LoadMore from '../LoadMore/LoadMore';
 import IconSearchBar from '../IconSearchBar/IconSearchBar';
 import { setPage, setFilters } from '../../redux/favorites/slice';
 import { getCamper } from '../../redux/favorites/operation';
-import { selectFilters, selectTotalPages, selectPage, selectCars} from '../../redux/favorites/selectors';
+import {
+  selectFilters,
+  selectTotalPages,
+  selectPage,
+  selectCars,
+  selectLimit
+} from '../../redux/favorites/selectors';
 
 const CarList = () => {
   const dispatch = useDispatch();
   const totalPages = useSelector(selectTotalPages);
   const page = useSelector(selectPage);
   const filters = useSelector(selectFilters);
-  const cars = useSelector(selectCars);
+  const carsData = useSelector(selectCars);
+  const limit = useSelector(selectLimit);
+
 
   useEffect(() => {
-        dispatch(getCamper({ page, limit: 4, filters }));
-  }, [dispatch, page, filters]);
+      console.log('Loading cars with:', { page, limit, filters });
+        dispatch(getCamper({ page, limit, filters }));
+  }, [dispatch, page, limit, filters]);
 
     const handleLoadMore = () => {
           if (page < totalPages) {
@@ -30,18 +39,21 @@ const CarList = () => {
       dispatch(setPage(1)); 
   };
 
-  if (!Array.isArray(cars)) {
-    console.error("campers не є масивом:", cars);
-    return <div>Немає даних для відображення</div>;
-  }
+  const cars = carsData?.campers || [];
 
   
- 
   const filteredLocalData = cars.filter(item => {
       return (!filters.location || item.location.toLowerCase().includes(filters.location.toLowerCase()));
   });
-    
-  const displayedCars = filteredLocalData.slice(0, page * 4);
+  
+    const startIndex = (page - 1) * limit;
+    const endIndex = page * limit;
+    const displayedCars = filteredLocalData.slice(startIndex, endIndex);
+
+  console.log('Page:', page);
+  console.log('Total Pages:', totalPages);
+  console.log('Displayed Cars:', JSON.stringify(displayedCars, null, 2));
+  console.log('Filtered Local Data:', JSON.stringify(filteredLocalData, null, 2));
 
   return (
      <section className={css.containerContactList}>
