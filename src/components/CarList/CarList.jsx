@@ -29,8 +29,15 @@ const CarList = () => {
       dispatch(setFilters({ ...filters, location: query }));
       dispatch(setPage(1)); 
   };
+
+  if (!Array.isArray(cars)) {
+    console.error("campers не є масивом:", cars);
+    return <div>Немає даних для відображення</div>;
+  }
+
   
-    const filteredLocalData = cars.filter(item => {
+ 
+  const filteredLocalData = cars.filter(item => {
       return (!filters.location || item.location.toLowerCase().includes(filters.location.toLowerCase()));
   });
     
