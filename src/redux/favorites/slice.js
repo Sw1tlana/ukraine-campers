@@ -6,11 +6,7 @@ export const initialStateCar = {
     isLoading: false,
     error: null,
     favoriteCar: [],
-    filters: {
-        location: '',
-        details: [],
-        form: ''
-    },
+    filters: {},
     page: 1,
     limit: 4,
     totalPages: 0
@@ -68,23 +64,18 @@ const carsSlice = createSlice({
         builder
             .addCase(getCamper.pending, handlePending)
             .addCase(getCamper.fulfilled, (state, action) => {
-                console.log("API Відповідь:", action.payload);
                 state.isLoading = false;
                 state.error = null;
 
-            const { campers, total } = action.payload;
-                state.totalPages = total ? Math.ceil(total / state.limit) : 1;
-                
-                    console.log("Отримані кампери:", campers);
-    console.log("Старі кампанери:", state.cars.campers);
+    const { campers, total } = action.payload;
+    state.totalPages = total ? Math.ceil(total / state.limit) : 1;
 
-                           if (Array.isArray(campers)) {
-                state.cars.campers = [...state.cars.campers, ...campers];
+            if (Array.isArray(campers)) {
+                state.cars.campers = state.page === 1
+                    ? campers
+                    : [...state.cars.campers, ...campers];
             }
-
- console.log("Оновлені кампанери:", state.cars.campers);
-
-            })
+        })
             .addCase(getCamper.rejected, handleRejected)
     }
 });

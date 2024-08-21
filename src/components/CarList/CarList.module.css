@@ -25,3 +25,9 @@
     padding: 0;
     margin: 0;
 }
+
+.scrollableList {
+    height: 90hv;
+    top: 0;
+
+}
