@@ -17,4 +17,8 @@
     --bg-color-title: rgba(16, 24, 40, 0.6);
     --bg-color-border: rgba(16, 24, 40, 0.1);
     --bg-box-shadow: rgba(0, 0, 0, 0.2);
+
+    --color-loader1: #475467;
+    --color-loader2: #e2dede;
+    --color-loader3: #475467;
 }

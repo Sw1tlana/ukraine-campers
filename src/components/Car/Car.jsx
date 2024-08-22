@@ -9,7 +9,8 @@ import { addFavorite, deleteFavorite } from '../../redux/favorites/slice';
 import { selectFavoriteCars } from '../../redux/favorites/selectors';
 
 
-const Car = ({advertElement}) => {
+const Car = ({ advertElement }) => {
+   console.log('Advert element:', advertElement);
   const [isModalOpen, setIsModalOpen] = useState(false);
   
   const dispatch = useDispatch();

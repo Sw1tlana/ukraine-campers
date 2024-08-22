@@ -13,10 +13,12 @@ export const initialStateCar = {
 }
 
 const handlePending = (state) => {
+    console.log('Fetching campers...');
     state.isLoading = true;
 };
 
 const handleRejected = (state, action) => {
+     console.log('Fetching campers failed:', action.payload); 
     state.isLoading = false;
     state.error = action.payload;
 }
@@ -64,10 +66,11 @@ const carsSlice = createSlice({
         builder
             .addCase(getCamper.pending, handlePending)
             .addCase(getCamper.fulfilled, (state, action) => {
+                 console.log('Camper data fetched:', action.payload); 
                 state.isLoading = false;
                 state.error = null;
 
-    const { campers, total } = action.payload;
+    const {  campers = [], total = 0  } = action.payload;
     state.totalPages = total ? Math.ceil(total / state.limit) : 1;
 
             if (Array.isArray(campers)) {

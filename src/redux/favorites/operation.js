@@ -3,7 +3,8 @@ import toast from 'react-hot-toast';
 import axios from '../../helpers/axiosConfig';
 
 export const getCamper = createAsyncThunk("camper/fetchAll",
-    async ({page, limit, filters }, thunkAPI) => {
+    async ({ page, limit, filters }, thunkAPI) => {
+        console.log('Fetching campers with filters:', { page, limit, filters });
         try {
             const response = await axios.get(`/campers`, {
                 params: {
