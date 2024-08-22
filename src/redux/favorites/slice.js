@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCamper } from "./operation";
+import { getCamper, searchCampers } from "./operation";
 
 export const initialStateCar = {
     cars: { campers: [] },
@@ -46,6 +46,7 @@ const carsSlice = createSlice({
             );
         },
         setFilters: (state, action) => {
+            console.log('Setting filters:', action.payload); 
             state.filters = action.payload;
         },
         resetFilters: (state) => {
@@ -80,6 +81,18 @@ const carsSlice = createSlice({
             }
         })
             .addCase(getCamper.rejected, handleRejected)
+            .addCase(searchCampers.pending, handlePending)
+            .addCase(searchCampers.fulfilled, (state, action) => {
+                console.log('Search results fetched:', action.payload);
+                state.isLoading = false;
+                state.error = null;
+
+                const { campers = [], total = 0 } = action.payload;
+                state.totalPages = total ? Math.ceil(total / state.limit) : 1;
+                state.campers = campers; 
+
+            })
+            .addCase(searchCampers.rejected, handleRejected);
     }
 });
 

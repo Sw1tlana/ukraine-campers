@@ -16,7 +16,8 @@ const IconSearchBar = ({onSubmit}) => {
         form.reset();
     };
 
-    return (
+
+return (
 <section>
     <form onSubmit={handleSubmit}>
        <div className={css.searchContainer}>
@@ -31,7 +32,7 @@ const IconSearchBar = ({onSubmit}) => {
                     <input className={css.searchInput}
                         type="text"
                         name="query"
-                        placeholder='City' />
+                        placeholder='City'/>
                 </div>
             </div>
                 <h2 className={`${css.title} ${css.filter}`}>Filters</h2>
