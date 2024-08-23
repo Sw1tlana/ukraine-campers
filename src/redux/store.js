@@ -12,6 +12,7 @@ import {
 } from 'redux-persist';
 import { carsReducer } from './favorites/slice';
 import { bookingReducer } from './booking/bookingSlice';
+import { searchReducer } from './search/searchSlice';
 
 const favoritePersistConfig = {
     key: 'camper',
@@ -23,6 +24,7 @@ export const store = configureStore({
     reducer: {
         favorite: persistReducer(favoritePersistConfig, carsReducer),
         booking: bookingReducer,
+        search: searchReducer,
     },
 
     middleware: (getDefaultMiddleware) =>

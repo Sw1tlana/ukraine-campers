@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCamper, searchCampers } from "./operation";
+import { getCamper } from "./operation";
 
 export const initialStateCar = {
     cars: { campers: [] },
     isLoading: false,
     error: null,
     favoriteCar: [],
-    filters: {},
+    filters: {location: ''},
     page: 1,
     limit: 4,
     totalPages: 0
@@ -50,7 +50,7 @@ const carsSlice = createSlice({
             state.filters = action.payload;
         },
         resetFilters: (state) => {
-             state.filters = { location: '', details: [], form: '' };
+             state.filters = {};
         },
         setPage: (state, action) => {
             state.page = action.payload;
@@ -74,25 +74,14 @@ const carsSlice = createSlice({
     const {  campers = [], total = 0  } = action.payload;
     state.totalPages = total ? Math.ceil(total / state.limit) : 1;
 
-            if (Array.isArray(campers)) {
-                state.cars.campers = state.page === 1
-                    ? campers
-                    : [...state.cars.campers, ...campers];
-            }
+  if (Array.isArray(campers)) {
+    state.cars.campers = state.page === 1
+      ? campers
+          : [...state.cars.campers, ...campers];
+       console.log('CarsSlice campers:', state.cars.campers); 
+  }
         })
             .addCase(getCamper.rejected, handleRejected)
-            .addCase(searchCampers.pending, handlePending)
-            .addCase(searchCampers.fulfilled, (state, action) => {
-                console.log('Search results fetched:', action.payload);
-                state.isLoading = false;
-                state.error = null;
-
-                const { campers = [], total = 0 } = action.payload;
-                state.totalPages = total ? Math.ceil(total / state.limit) : 1;
-                state.campers = campers; 
-
-            })
-            .addCase(searchCampers.rejected, handleRejected);
     }
 });
 
