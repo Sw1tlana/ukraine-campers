@@ -4,7 +4,6 @@ import { searchCampers } from '../../redux/search/operations';
 import { getCamper } from '../../redux/favorites/operation';
 import SpinnerLoader from '../SpinnerLoader/SpinnerLoader';
 import {
-  selectFilteredCampers,
   selectSearchLoading
 } from '../../redux/search/selectors'; 
 import {
@@ -12,7 +11,8 @@ import {
   selectTotalPages,
   selectPage,
   selectLimit,
-  selectCars
+  selectCars,
+  selectFilteredCampers
 } from '../../redux/favorites/selectors';
 import LoadMore from '../LoadMore/LoadMore';
 import IconSearchBar from '../IconSearchBar/IconSearchBar';
@@ -50,34 +50,36 @@ const CarList = () => {
   const handleLoadMore = () => {
     if (page < totalPages) {
       dispatch(setPage(page + 1));
-      dispatch(searchCampers({ page: page + 1, limit, filters, location: filters.location }));
+      dispatch(searchCampers({ page: page + 1, limit, filters }));
     }
   };
 
   const handleSearch = (query) => {
     const newFilters = { ...filters, location: query };
-    dispatch(searchCampers({ page: 1, limit, filters: newFilters, location: query }));
+    dispatch(searchCampers({ newFilters, location: query }));
     dispatch(setPage(1));
   };
 
-   const cars = filters.location ? carsData?.campers || [] : searchData?.campers || [];
+    console.log('searchData:', searchData);
+  console.log('carsData:', carsData);
+
+ const cars = Array.isArray(searchData) && searchData.length ? searchData : carsData?.campers || [];
+  console.log('Final cars:', cars);
 
   return (
     <section className={css.containerContactList}>
       <div className={css.container}>
         {loading ? <SpinnerLoader /> : (
           <>
+          <div>
             <IconSearchBar onSubmit={handleSearch} className={css.searchBar} />
+          </div>
             <div className={css.content}>
-<ul className={css.carList}>
-  {cars.length > 0 ? (
-    cars.map((advertElement) => (
-      <Car key={advertElement._id} advertElement={advertElement} />
-    ))
-  ) : (
-    <li>No cars found for the current filters</li>
-  )}
-</ul>
+              <ul className={css.carList}>
+                {cars.map((advertElement) => (
+                  <Car key={advertElement._id} advertElement={advertElement} />
+                ))}
+              </ul>
             </div>
           </>
         )}

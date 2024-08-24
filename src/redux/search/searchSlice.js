@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { searchCampers } from './operations';
 
 const initialState = {
-   campers: [],
+  cars: { campers: [] },
   isLoading: false,
   error: null,
 };
@@ -19,8 +19,8 @@ const searchSlice = createSlice({
       })
       .addCase(searchCampers.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.campers = action.payload.campers;
-        console.log('SearchSlice campers:', state.campers); 
+        state.cars.campers = action.payload;
+        console.log('SearchSlice campers:', state.cars); 
       })
       .addCase(searchCampers.rejected, (state, action) => {
         state.isLoading = false;
