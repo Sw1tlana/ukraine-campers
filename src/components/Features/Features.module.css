@@ -2,8 +2,9 @@
     max-width: 280px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;  
+    gap: 8px;  
     margin-bottom: 18px;
+    margin-right: 20px;
 }
 
 .featureItem {

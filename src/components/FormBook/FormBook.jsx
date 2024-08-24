@@ -1,23 +1,16 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { addBookings } from "../../redux/booking/operation";
+import { bookingSchema } from "../../schemas/bookingSchema";
 import css from "./FormBook.module.css";
 import toast from "react-hot-toast";
-
-const schema = yup.object().shape({
-  name: yup.string().required("Name is required"),
-  email: yup.string().email("Invalid email address").required("Email is required"),
-  bookingDate: yup.date().required("Booking date is required"),
-  comment: yup.string()
-});
 
 const FormBook = () => {
   const dispatch = useDispatch();
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
-        resolver: yupResolver(schema)
+        resolver: yupResolver(bookingSchema)
     });
 
 const onSubmit = async (data) => {
@@ -28,10 +21,13 @@ const onSubmit = async (data) => {
         
         data.bookingDate = new Date(data.bookingDate).toISOString();
         
-        await dispatch(addBookings(data)).unwrap();
-        
-        toast.success('Booking successfully added! 🎉');
-        reset();
+        const resultAction = await dispatch(addBookings(data)).unwrap();
+
+        if (resultAction) {
+            toast.success(resultAction.message || 'Booking successfully added! 🎉');
+            reset();
+        }
+
     } catch (error) {
         toast.error('Something went wrong! 😞');
     }
@@ -50,14 +46,14 @@ const onSubmit = async (data) => {
                     placeholder="Name"
                     {...register('name')} 
                     aria-required="true"/>
-                {errors.name && <p>{errors.name.message}</p>}
+                {errors.name && <p className={css.errorMsg}>{errors.name.message}</p>}
             </div>
             <div>
                     <input id="email"
                     className={css.formInput}
                     placeholder="Email"
                     {...register('email')} />
-                {errors.email && <p>{errors.email.message}</p>}
+                {errors.email && <p className={css.errorMsg}>{errors.email.message}</p>}
             </div>
             <div>
                     <input type="date"
@@ -65,7 +61,7 @@ const onSubmit = async (data) => {
                     className={css.formInput}
                     placeholder="booking Date"
                     {...register('bookingDate')} />
-                {errors.bookingDate && <p>{errors.bookingDate.message}</p>}
+                {errors.bookingDate && <p className={css.errorMsg}>{errors.bookingDate.message}</p>}
             </div>
             <div>
                     <textarea id="comment"

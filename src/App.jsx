@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from "react";
+import { Toaster } from 'react-hot-toast';
 import Layout from "./components/Layout/Layout";
 import Loader from "./shared/components/Loader/Loader";
 
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <>
+    <Toaster />
      <Layout>  
       <Suspense fallback={<Loader />}>
           <Routes>     

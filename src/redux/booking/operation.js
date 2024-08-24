@@ -1,14 +1,18 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import axios from '../../helpers/axiosConfig';
 import toast from 'react-hot-toast';
-
-const API_URL = 'http://localhost:3000/api';
 
 export const addBookings = createAsyncThunk(
     "booking/addBooking",
     async (bookingData, thunkAPI) => {
         try {
-            const response = await axios.post(`${API_URL}/bookings`, bookingData);
+                const dataToSend = {
+                name: bookingData.name.trim(),
+                email: bookingData.email.trim(),
+                bookingDate: new Date(bookingData.bookingDate).toISOString(),
+                ...(bookingData.comment && { comment: bookingData.comment.trim() })
+            };
+            const response = await axios.post('/bookings', dataToSend);
             toast.success('Thank you for choosing us!🤗');
             return response.data;
         } catch (error) {

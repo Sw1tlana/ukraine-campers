@@ -20,12 +20,10 @@ const searchSlice = createSlice({
       .addCase(searchCampers.fulfilled, (state, action) => {
         state.isLoading = false;
         state.cars.campers = action.payload;
-        console.log('SearchSlice campers:', state.cars); 
       })
       .addCase(searchCampers.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload || 'Щось пішло не так';
-        console.error('Search error:', state.error); 
+        state.error = action.payload;
       });
   },
 });

@@ -13,8 +13,6 @@ export const selectLimit = (state) => state.favorite.limit;
 export const selectFilteredCampers = createSelector(
   [selectSearchCampers, selectFilters],
   (searchCampers, filters) => {
-    console.log('Filters in selector:', filters); 
-    console.log('Campers in selector:', searchCampers); 
 
     if (!filters.location || filters.location === '') {
       return searchCampers.campers;

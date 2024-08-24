@@ -7,7 +7,7 @@ const CarFeatures = ({ data }) => {
 
     return (
         <div className={css.containerFeature}>
-            <Features db={data} />
+            <Features db={data}/>
             <FormBook/>
         </div>
     )

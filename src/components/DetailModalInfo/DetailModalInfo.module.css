@@ -45,6 +45,7 @@
 
 .containerWrapp {
     margin-bottom: 18px;
+    margin-right: 20px;
 }
 
 .listModalImg {
@@ -79,8 +80,6 @@
 
 .informList {
     list-style: none;
-    padding: 0;
-    margin: 0;
     position: relative;
     display: flex;
     width: 430px;

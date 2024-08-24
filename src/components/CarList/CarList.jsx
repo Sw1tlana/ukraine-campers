@@ -75,11 +75,13 @@ const CarList = () => {
             <IconSearchBar onSubmit={handleSearch} className={css.searchBar} />
           </div>
             <div className={css.content}>
-              <ul className={css.carList}>
-                {cars.map((advertElement) => (
-                  <Car key={advertElement._id} advertElement={advertElement} />
-                ))}
-              </ul>
+                  {Array.isArray(cars) && cars.length > 0 && (
+                    <ul className={css.carList}>
+                      {cars.map((advertElement) => (
+                        <Car key={advertElement._id} advertElement={advertElement} />
+                      ))}
+                    </ul>
+                  )}
             </div>
           </>
         )}
