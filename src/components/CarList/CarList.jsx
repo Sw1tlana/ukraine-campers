@@ -18,6 +18,7 @@ import IconSearchBar from '../IconSearchBar/IconSearchBar';
 import Car from '../Car/Car';
 import css from './CarList.module.css';
 import { useEffect, useRef } from 'react';
+import Loader from '../../shared/components/Loader';
 
 const CarList = () => {
   const dispatch = useDispatch();
@@ -47,7 +48,6 @@ const CarList = () => {
   const handleLoadMore = () => {
     if (!loading && page < totalPages) {
       dispatch(setPage(page + 1));
-
     }
   };
 
@@ -61,31 +61,34 @@ const CarList = () => {
   console.log('carsData:', carsData);
 
  const cars = Array.isArray(searchData) && searchData.length ? searchData : carsData?.campers || [];
-  console.log('Final cars:', cars);
 
   return (
-    <section className={css.containerContactList}>
-      <div className={css.container}>
-        <div>
-          <IconSearchBar onSubmit={handleSearch} className={css.searchBar} />
-        </div>
-        <div className={css.content}>
-          {loading && <p>loading...</p>}
-            <>
-              {Array.isArray(cars) && cars.length > 0 && (
-                <ul className={css.carList}>
-                  {cars.map((advertElement) => (
-                    <Car key={advertElement._id} advertElement={advertElement} />
-                  ))}
-                </ul>
-              )}
-            </>
-        </div>
+<section className={css.containerContactList}>
+  {loading && <Loader />} 
+  
+  {!loading && (
+    <>
+      <div>
+        <IconSearchBar onSubmit={handleSearch} className={css.searchBar} />
       </div>
-      {!loading && page < totalPages && (
-        <LoadMore onClick={handleLoadMore} />
-      )}
-    </section>
+
+      <div className={css.content}>
+        {Array.isArray(cars) && cars.length > 0 ? (
+          <>
+            <ul className={css.carList}>
+              {cars.map((advertElement) => (
+                <Car key={advertElement._id} advertElement={advertElement} />
+              ))}
+            </ul>
+            {page < totalPages && <LoadMore onClick={handleLoadMore} />}
+          </>
+        ) : (
+          <p>No cars available</p>
+        )}
+      </div>
+    </>
+  )}
+</section>
   );
 };
 

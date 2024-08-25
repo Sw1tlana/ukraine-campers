@@ -18,11 +18,13 @@
 .searchBar {
     display: flex;
     justify-content: flex-start;
+    margin-bottom: 16px;
 }
 
 .content {
     flex: 1;
 }
+
 
 .carList {
     list-style-type: none;
@@ -36,4 +38,11 @@
   text-align: center;
   margin-top: 20px;
   font-weight: bold;
+}
+
+@media (min-width: 769px) {
+
+   .container {
+        flex-wrap: nowrap;
+    }
 }

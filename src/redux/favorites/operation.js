@@ -12,7 +12,7 @@ export const getCamper = createAsyncThunk("camper/getCamper",
                     ...filters 
                 }
             });
-            toast.success("Camper data fetched successfully!");
+            toast.success("Camper data fetched successfully!🤗");
             return response.data;
         } catch (error) {
             toast.error("Failed to fetch camper data.");
