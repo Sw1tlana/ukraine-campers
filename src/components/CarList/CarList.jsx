@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setPage } from '../../redux/favorites/slice';
 import { searchCampers } from '../../redux/search/operations';
 import { getCamper } from '../../redux/favorites/operation';
-import SpinnerLoader from '../SpinnerLoader/SpinnerLoader';
 import {
   selectSearchLoading
 } from '../../redux/search/selectors'; 
@@ -29,8 +28,6 @@ const CarList = () => {
   const searchData = useSelector(selectFilteredCampers);
   const carsData = useSelector(selectCars); 
   const loading = useSelector(selectSearchLoading);
-
-
   const scrollPosition = useRef(0);
 
   useEffect(() => {
@@ -48,15 +45,15 @@ const CarList = () => {
   }, [carsData, loading]);
 
   const handleLoadMore = () => {
-    if (page < totalPages) {
+    if (!loading && page < totalPages) {
       dispatch(setPage(page + 1));
-      dispatch(searchCampers({ page: page + 1, limit, filters }));
+
     }
   };
 
   const handleSearch = (query) => {
     const newFilters = { ...filters, location: query };
-    dispatch(searchCampers({ newFilters, location: query }));
+    dispatch(searchCampers({ page: 1, limit, filters: newFilters, location: query }));
     dispatch(setPage(1));
   };
 
@@ -69,22 +66,21 @@ const CarList = () => {
   return (
     <section className={css.containerContactList}>
       <div className={css.container}>
-        {loading ? <SpinnerLoader /> : (
-          <>
-          <div>
-            <IconSearchBar onSubmit={handleSearch} className={css.searchBar} />
-          </div>
-            <div className={css.content}>
-                  {Array.isArray(cars) && cars.length > 0 && (
-                    <ul className={css.carList}>
-                      {cars.map((advertElement) => (
-                        <Car key={advertElement._id} advertElement={advertElement} />
-                      ))}
-                    </ul>
-                  )}
-            </div>
-          </>
-        )}
+        <div>
+          <IconSearchBar onSubmit={handleSearch} className={css.searchBar} />
+        </div>
+        <div className={css.content}>
+          {loading && <p>loading...</p>}
+            <>
+              {Array.isArray(cars) && cars.length > 0 && (
+                <ul className={css.carList}>
+                  {cars.map((advertElement) => (
+                    <Car key={advertElement._id} advertElement={advertElement} />
+                  ))}
+                </ul>
+              )}
+            </>
+        </div>
       </div>
       {!loading && page < totalPages && (
         <LoadMore onClick={handleLoadMore} />

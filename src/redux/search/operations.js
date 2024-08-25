@@ -5,7 +5,12 @@ export const searchCampers = createAsyncThunk(
   'favorites/searchCampers',
     async ({ page = 1, limit = 4, filters = {}, location = '' }, { rejectWithValue }) => {
     try {
-      const params = { page, limit, ...filters, location };
+      const params = { page, limit, ...filters };
+      
+      if (location && location.trim()) {
+        params.location = location.trim();
+      }
+  console.log('Final Request Params:', params); 
   
       const response = await axios.get('/search', { params });
       return response.data;
