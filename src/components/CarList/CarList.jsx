@@ -18,7 +18,7 @@ import IconSearchBar from '../IconSearchBar/IconSearchBar';
 import Car from '../Car/Car';
 import css from './CarList.module.css';
 import { useEffect, useRef } from 'react';
-import Loader from '../../shared/components/Loader';
+// import Loader from '../../shared/components/Loader';
 
 const CarList = () => {
   const dispatch = useDispatch();
@@ -64,7 +64,12 @@ const CarList = () => {
 
   return (
 <section className={css.containerContactList}>
-  {loading && <Loader />} 
+  {loading && (
+    <div className={css.content}>
+      <IconSearchBar onSubmit={handleSearch} className={css.searchBar} />
+      <p className={css.loaderText}>Loader...</p>
+    </div>
+  )}
   
   {!loading && (
     <>
@@ -83,7 +88,7 @@ const CarList = () => {
             {page < totalPages && <LoadMore onClick={handleLoadMore} />}
           </>
         ) : (
-          <p>No cars available</p>
+          <p className={css.loaderText}>Loader...</p>
         )}
       </div>
     </>

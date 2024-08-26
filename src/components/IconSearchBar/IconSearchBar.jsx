@@ -18,7 +18,7 @@ const IconSearchBar = ({onSubmit}) => {
 
 
 return (
-<section>
+<section className={css.sectionSearchBar}>
     <form onSubmit={handleSubmit}>
        <div className={css.searchContainer}>
         <h2 className={css.title}>Location</h2>

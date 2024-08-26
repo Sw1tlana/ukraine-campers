@@ -1,6 +1,5 @@
 .catalogList {
     display: flex;
-    justify-content: space-between;
     padding: 34px;
     width: 100%;
 }

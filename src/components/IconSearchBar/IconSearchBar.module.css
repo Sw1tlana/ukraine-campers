@@ -1,3 +1,7 @@
+.sectionSearchBar {
+    width: 100%;
+}
+
 .searchContainer {
     display: flex;
     flex-direction: column;
