@@ -18,7 +18,7 @@ import IconSearchBar from '../IconSearchBar/IconSearchBar';
 import Car from '../Car/Car';
 import css from './CarList.module.css';
 import { useEffect, useRef } from 'react';
-// import Loader from '../../shared/components/Loader';
+import Loader from '../../shared/components/Loader/Loader';
 
 const CarList = () => {
   const dispatch = useDispatch();
@@ -62,38 +62,36 @@ const CarList = () => {
 
  const cars = Array.isArray(searchData) && searchData.length ? searchData : carsData?.campers || [];
 
-  return (
-<section className={css.containerContactList}>
-  {loading && (
-    <div className={css.content}>
-      <IconSearchBar onSubmit={handleSearch} className={css.searchBar} />
-      <p className={css.loaderText}>Loader...</p>
-    </div>
-  )}
-  
-  {!loading && (
-    <>
-      <div>
-        <IconSearchBar onSubmit={handleSearch} className={css.searchBar} />
-      </div>
-
-      <div className={css.content}>
-        {Array.isArray(cars) && cars.length > 0 ? (
-          <>
-            <ul className={css.carList}>
-              {cars.map((advertElement) => (
-                <Car key={advertElement._id} advertElement={advertElement} />
-              ))}
-            </ul>
-            {page < totalPages && <LoadMore onClick={handleLoadMore} />}
-          </>
+return (
+    <section className={css.containerContactList}>
+      <div className={css.container}>
+        {loading ? (
+          <Loader />
         ) : (
-          <p className={css.loaderText}>Loader...</p>
+          <>
+            <div>
+              <IconSearchBar onSubmit={handleSearch} className={css.searchBar} />
+            </div>
+            <div className={css.content}>
+              {Array.isArray(cars) && cars.length > 0 ? (
+                <ul className={css.carList}>
+                  {cars.map((advertElement) => (
+                    <Car key={advertElement._id} advertElement={advertElement} />
+                  ))}
+                </ul>
+              ) : (
+                <p>No cars available</p>  
+              )}
+            </div>
+          </>
         )}
       </div>
-    </>
-  )}
-</section>
+      {!loading && page < totalPages && (
+        <div className={css.loadMoreContainer}>
+          <LoadMore onClick={handleLoadMore} />
+        </div>
+      )}
+    </section>
   );
 };
 
